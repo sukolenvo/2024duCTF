@@ -1,0 +1,8 @@
+site_name: 'DU CTF 2024'
+site_description: 'Writeups for Down Under CTF 2024'
+repo_url: https://github.com/sukolenvo/2024duCTF
+edit_uri: edit/master/docs
+docs_dir: solve
+
+plugins:
+  - techdocs-core
