@@ -11,8 +11,6 @@ CTF Event: Down Under CTF 2024
 
 Website: [https://downunderctf.com/](https://downunderctf.com/)
 
-Challenge: **shufflebox**
-
 Solves: 582
 
 !!! quote "Description"

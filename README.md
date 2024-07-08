@@ -9,14 +9,14 @@ Writeups for Down Under CTF 2024.
 
 ### Content
 
-* Shufflebox
-    * ./solve/shufflebox/index.md
+Github pages: https://sukolenvo.github.io/2024duCTF/
 
-### Technology
+I've recently been researching what is available on the market among documentation tools.
 
-I've recently researching what is on the market currently available among documentation tools.
+[TechDocs](https://backstage.io/docs/features/techdocs/) caught my eye. This repository is a practical evaluation of the tool.
 
-[TechDocs](https://backstage.io/docs/features/techdocs/) caught my eye. This repository is a practical examination of the tool.
+Live preview: `techdocs-cli serve`.
+Launching first time can take few minutes to pull necessary docker images, run `techdocs-cli serve -v` to track boot steps.
 
-Live preview: `techdocs-cli serve`. Launching first time can take few minutes to pull necessary docker
-images, run `techdocs-cli serve -v` to track boot progress.
+Build site:
+`techdocs-cli generate`
