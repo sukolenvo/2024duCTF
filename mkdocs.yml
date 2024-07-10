@@ -6,3 +6,8 @@ docs_dir: solve
 
 plugins:
   - techdocs-core
+
+nav:
+  - 'index.md'
+  - Shufflebox: ./shufflebox/index.md
+  - Number mashing: ./number_mashing/index.md

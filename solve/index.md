@@ -16,7 +16,7 @@ description: Writeups for Down Under CTF 2024
 * [shufflebox](./shufflebox/index.md)
   * Solved: 582
   * Category: cryptography
-* number mashing
+* [number mashing](./number_mashing/index.md)
   * Solved: 299
   * Category: reverse engineering
 * Intercepted Transmissions

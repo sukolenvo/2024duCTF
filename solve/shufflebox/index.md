@@ -1,8 +1,7 @@
 ---
 id: index
 title: Shufflebox writeup
-sidebar_label: Overview
-description: Writeup for challenge shufflebox of Down Under CTF 2024
+description: Writeup for challenge "shufflebox" of Down Under CTF 2024
 ---
 
 Down Under CTF 2024 is the first CTF I've participated in. Our team did very well. This is writeup for one of
@@ -91,9 +90,9 @@ abcdabcdabcdabcd -> bcaadbdcdbcdacab
 Looking at the first line we immediately spot the problem - there are 4 'a' in the input so we can't immediately tell
 where it was.
 
-Based on first line `aaaabbbbccccdddd -> ccaccdabdbdbbada`, first character is moved in one of the following positions: `[0] -> [2, 6, 13, 15]`
+Based on the first line `aaaabbbbccccdddd -> ccaccdabdbdbbada`, first character is moved in one of the following positions: `[0] -> [2, 6, 13, 15]`
 
-Because same transformation is applied to each row, we can use second row to narrow down positions of the first character:
+Given all rows are transformed exactly the same, we can use second row to narrow down positions of the first character:
 `abcdabcdabcdabcd -> bcaadbdcdbcdacab`: first character is moved into one of the following positions: `[0] -> [2, 3, 12, 14]`
 
 Now we can compare this two lists and see that only value `2` is present in both. Hence, first character of input is third character of output.
