@@ -5,13 +5,16 @@ sidebar_label: Overview
 description: Writeup for challenge shufflebox of Down Under CTF 2024
 ---
 
+Down Under CTF 2024 is the first CTF I've participated in. Our team did very well. This is writeup for one of
+the simpler challenges I've solved. Feedback is really, really appreciated.
+
 ## Prologue
 
-CTF Event: Down Under CTF 2024
+Difficulty: beginner
 
-Website: [https://downunderctf.com/](https://downunderctf.com/)
+Category: cryptography
 
-Solves: 582
+Solved: 582
 
 !!! quote "Description"
     I've learned that if you shuffle your text, it's elrlay hrda to tlle htaw eht nioiglra nutpi aws.
@@ -168,6 +171,7 @@ for i in range(16):
         print(challenge[resolved_positions[i]], end="")
     ```
 
-## Epilogue 
+## Epilogue
 
-Official writeups: https://github.com/DownUnderCTF/Challenges_2024_Public
+* Official website: [https://downunderctf.com/](https://downunderctf.com/)
+* Official writeups: https://github.com/DownUnderCTF/Challenges_2024_Public
