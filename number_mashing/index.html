@@ -535,17 +535,17 @@ Testing with following inputs -2147483648 -1 gives us something interesting:
 Give<span class="w"> </span>me<span class="w"> </span>some<span class="w"> </span>numbers:<span class="w"> </span>-2147483648<span class="w"> </span>-1
 zsh:<span class="w"> </span>floating<span class="w"> </span>point<span class="w"> </span>exception<span class="w">  </span>./number-mashing
 </code></pre></div></td></tr></table></div>
-On x86 architecture <abbr title="signed division x86 instuction">idiv</abbr> assembly instruction is used, quick google <code>idiv floating point exception</code> bring us to 
+On x86 architecture <abbr title="signed division x86 instuction">idiv</abbr> assembly instruction is used, quick google <em><abbr title="signed division x86 instuction">idiv</abbr> floating point exception</em> bring us to 
 <a href="https://stackoverflow.com/questions/56303282/why-idiv-with-1-causes-floating-point-exception">stackoverflow</a>.
 <abbr title="signed division x86 instuction">idiv</abbr> will raise an exception in two cases:</p>
 <ul>
 <li>You divide by zero</li>
 <li>The division result is not in the range that can be represented by the <code>eax</code> register</li>
 </ul>
-<p>Indeed, range for 4 byte number is from -2147483648 to 2147483647, so ideally <code>-2147483648 / -1 = 2147483648</code> which doesn't fit
-range above, hence we got error.</p>
+<p>Indeed, range for 4 byte number is from -2147483648 to 2147483647, so result of <code>-2147483648 / -1 = 2147483648</code> doesn't fit in 
+the range above, hence we got error.</p>
 <p>On arm architecture <abbr title="signed division arm instruction">sdiv</abbr> instruction is used, it doesn't raise exception, instead carry flag is set in cpsr register.</p>
-<p>Connecting to server and submitting two numbers got us the flag.</p>
+<p>Connecting to the challenge server and submitting two numbers got us the flag.</p>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
