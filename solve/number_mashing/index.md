@@ -130,19 +130,19 @@ $ ./number-mashing
 Give me some numbers: -2147483648 -1
 zsh: floating point exception  ./number-mashing
 ```
-On x86 architecture idiv assembly instruction is used, quick google `idiv floating point exception` bring us to 
+On x86 architecture idiv assembly instruction is used, quick google _idiv floating point exception_ bring us to 
 [stackoverflow](https://stackoverflow.com/questions/56303282/why-idiv-with-1-causes-floating-point-exception).
 idiv will raise an exception in two cases:
 
 * You divide by zero
 * The division result is not in the range that can be represented by the `eax` register
 
-Indeed, range for 4 byte number is from -2147483648 to 2147483647, so ideally `-2147483648 / -1 = 2147483648` which doesn't fit
-range above, hence we got error.
+Indeed, range for 4 byte number is from -2147483648 to 2147483647, so result of `-2147483648 / -1 = 2147483648` doesn't fit in 
+the range above, hence we got error.
 
 On arm architecture sdiv instruction is used, it doesn't raise exception, instead carry flag is set in cpsr register.
 
-Connecting to server and submitting two numbers got us the flag.
+Connecting to the challenge server and submitting two numbers got us the flag.
 
 ## Epilogue
 
