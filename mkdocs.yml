@@ -11,3 +11,4 @@ nav:
   - 'index.md'
   - Shufflebox: ./shufflebox/index.md
   - Number mashing: ./number_mashing/index.md
+  - Intercepted transmissions: ./transmissions/index.md
