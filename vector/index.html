@@ -754,10 +754,10 @@ This is CTF framework for binary exploitation, its only "disadvantage" is it has
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">paylod</span> <span class="o">=</span> <span class="n">flat</span><span class="p">(</span> <span class="c1"># concatenate all elements one after another</span>
-    <span class="sa">b</span><span class="s1">&#39;DUCTF</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span> <span class="c1"># first first bytes of the buffer is string DUCTF</span>
-    <span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>  <span class="c1"># fill in remaining 10 character with null bytes</span>
-    <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span><span class="p">),</span> <span class="c1"># address 0x4051e0 converted to 8 bytes in little endian format</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">paylod</span> <span class="o">=</span> <span class="n">flat</span><span class="p">(</span>         <span class="c1"># concatenate all elements one after another</span>
+    <span class="sa">b</span><span class="s1">&#39;DUCTF</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span>      <span class="c1"># first first bytes of the buffer is string DUCTF</span>
+    <span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>       <span class="c1"># fill in remaining 10 character with null bytes</span>
+    <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span><span class="p">),</span>    <span class="c1"># address 0x4051e0 converted to 8 bytes in little endian format</span>
     <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># address 0x4051e5 converted to 8 bytes in little endian format</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hexdump</span><span class="p">(</span><span class="n">paylod</span><span class="p">))</span>
