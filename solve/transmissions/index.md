@@ -98,7 +98,7 @@ for i in range(0, len(input), 7): # generate sequence 0, 7, 14 ... 441
     print(letters[word], end="") # print letter from alphabet that corresponds to the sequence
 ```
 
-The output made me excited, I can even read the sentence:
+The output is exciting, I can even read the sentence:
 ```txt
 HHTHE QUPKKRSS ARE HELD QN FRCQLITY HQQOQQF
 ```
