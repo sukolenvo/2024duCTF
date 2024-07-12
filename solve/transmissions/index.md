@@ -41,16 +41,17 @@ NB:
 ## My struggle
 
 Quick google CCIR476 leads us to wiki page that explains that CCIR476 is a character enconding used in radio data protocol.
-So seems like we should start by decoding message. Article itself is not too friendly and doesn't explain much (too many
-technical words without definition for my liking), but there is important bit it stats that CCIR 476 is a 7-bit encoding.
-This allows us quickly test if our input is indeed CCID476 message without investing hours in the wrong direction:
+So seems like we should start by decoding the message. Article itself is not too friendly and doesn't explain much (too many
+technical words without definition for my liking), but there is important bit: CCIR476 encodes each character as 7-bits.
+
+This allows us quickly test if our input is indeed CCID476 message or not without investing hours moving in the wrong direction:
 length of input is 441 which is exactly 63 7bit words. Looks promising!
 
 Second link in google is https://blog.gcwizard.net/manual/en/ccitt-codes/08-what-is-ccir-476/
 Which contains table that can be used for decoding:
 ![ccir476.png](./ccir476.png)
 
-So in first version I created alphabet with all characters I can understand and left others (CR, LTRS, FIGS) empty:
+So in the first iteration I created alphabet with all characters I can understand and left others (CR, LTRS, FIGS) empty:
 
 !!! note "Interation 1"
     ```py
@@ -98,19 +99,19 @@ So in first version I created alphabet with all characters I can understand and 
         print(letters[word], end="") # print letter from alphabet that corresponds to the sequence
     ```
 
-The result is looking very promising, I can even read the sentence:
+The output made me excited, I can even read the sentence:
 ```txt
 HHTHE QUPKKRSS ARE HELD QN FRCQLITY HQQOQQF
 ```
-But some letters are wrong, and also according to description of the challenge result should start with `##`. So, how can we get
-from `HH` to `##`? Notice from encoding table has many columns and `1101001` is `H` in letters case, but `#` in `US TTYs`
+But some letters are wrong, and also according to description of the challenge answer starts with `##`.
+
+So, how can we get from `HH` to `##`? Notice in encoding table there are many columns and `1101001` is `H` in letters case, but `#` in `US TTYs`
 (whatever that means).
 
-Probably ignored so far characters CR, LTRS and FIGS could be helpful. Explanation is very obvious, but on the day it took
-quite a lot of trial and errors:
+Probably ignored so far characters CR, LTRS and FIGS could be helpful. Explanation is very obvious, but on the day it quite some digging:
 
-* LTRS - switches decoding into letters mode (ie after LTRS symbols all characters are letters until FIGS is encountered)
-* FIGS - switching decoding into figures mode (ie all characters from now will be symbols until LTRS is encountered)
+* LTRS - switches decoding into letters mode (ie after LTRS all characters are letters until FIGS is encountered)
+* FIGS - switching decoding into figures mode (ie all characters from now on will be symbols until LTRS is encountered)
 
 Second alphabet added, slightly updated decoding logic:
 
@@ -201,8 +202,8 @@ Second alphabet added, slightly updated decoding logic:
     
     ```
 
-The only thing not mentioned before is I used `'` instead of `BELL` character because its not clear what that one means and 
-single quote grammatically made sense. 
+The only thing not mentioned before is I used `'` instead of `BELL` character because its not clear what `BELL` means and 
+single quote grammatically makes sense. 
 
 ## Epilogue
 
