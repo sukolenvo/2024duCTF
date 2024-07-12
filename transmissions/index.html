@@ -420,14 +420,14 @@
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
 <p>Quick google CCIR476 leads us to wiki page that explains that CCIR476 is a character enconding used in radio data protocol.
-So seems like we should start by decoding message. Article itself is not too friendly and doesn't explain much (too many
-technical words without definition for my liking), but there is important bit it stats that CCIR 476 is a 7-bit encoding.
-This allows us quickly test if our input is indeed CCID476 message without investing hours in the wrong direction:
+So seems like we should start by decoding the message. Article itself is not too friendly and doesn't explain much (too many
+technical words without definition for my liking), but there is important bit: CCIR476 encodes each character as 7-bits.</p>
+<p>This allows us quickly test if our input is indeed CCID476 message or not without investing hours moving in the wrong direction:
 length of input is 441 which is exactly 63 7bit words. Looks promising!</p>
 <p>Second link in google is <a href="https://blog.gcwizard.net/manual/en/ccitt-codes/08-what-is-ccir-476/">https://blog.gcwizard.net/manual/en/ccitt-codes/08-what-is-ccir-476/</a>
 Which contains table that can be used for decoding:
 <img alt="ccir476.png" src="ccir476.png" /></p>
-<p>So in first version I created alphabet with all characters I can understand and left others (<abbr title="Carriage return">CR</abbr>, <abbr title="Letter shift">LTRS</abbr>, <abbr title="Figure shift">FIGS</abbr>) empty:</p>
+<p>So in the first iteration I created alphabet with all characters I can understand and left others (<abbr title="Carriage return">CR</abbr>, <abbr title="Letter shift">LTRS</abbr>, <abbr title="Figure shift">FIGS</abbr>) empty:</p>
 <div class="admonition note">
 <p class="admonition-title">Interation 1</p>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -515,17 +515,16 @@ Which contains table that can be used for decoding:
     <span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="n">word</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># print letter from alphabet that corresponds to the sequence</span>
 </code></pre></div></td></tr></table></div>
 </div>
-<p>The result is looking very promising, I can even read the sentence:
+<p>The output made me excited, I can even read the sentence:
 <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>HHTHE QUPKKRSS ARE HELD QN FRCQLITY HQQOQQF
 </code></pre></div></td></tr></table></div>
-But some letters are wrong, and also according to description of the challenge result should start with <code>##</code>. So, how can we get
-from <code>HH</code> to <code>##</code>? Notice from encoding table has many columns and <code>1101001</code> is <code>H</code> in letters case, but <code>#</code> in <code>US TTYs</code>
+But some letters are wrong, and also according to description of the challenge answer starts with <code>##</code>.</p>
+<p>So, how can we get from <code>HH</code> to <code>##</code>? Notice in encoding table there are many columns and <code>1101001</code> is <code>H</code> in letters case, but <code>#</code> in <code>US TTYs</code>
 (whatever that means).</p>
-<p>Probably ignored so far characters <abbr title="Carriage return">CR</abbr>, <abbr title="Letter shift">LTRS</abbr> and <abbr title="Figure shift">FIGS</abbr> could be helpful. Explanation is very obvious, but on the day it took
-quite a lot of trial and errors:</p>
+<p>Probably ignored so far characters <abbr title="Carriage return">CR</abbr>, <abbr title="Letter shift">LTRS</abbr> and <abbr title="Figure shift">FIGS</abbr> could be helpful. Explanation is very obvious, but on the day it quite some digging:</p>
 <ul>
-<li><abbr title="Letter shift">LTRS</abbr> - switches decoding into letters mode (ie after <abbr title="Letter shift">LTRS</abbr> symbols all characters are letters until <abbr title="Figure shift">FIGS</abbr> is encountered)</li>
-<li><abbr title="Figure shift">FIGS</abbr> - switching decoding into figures mode (ie all characters from now will be symbols until <abbr title="Letter shift">LTRS</abbr> is encountered)</li>
+<li><abbr title="Letter shift">LTRS</abbr> - switches decoding into letters mode (ie after <abbr title="Letter shift">LTRS</abbr> all characters are letters until <abbr title="Figure shift">FIGS</abbr> is encountered)</li>
+<li><abbr title="Figure shift">FIGS</abbr> - switching decoding into figures mode (ie all characters from now on will be symbols until <abbr title="Letter shift">LTRS</abbr> is encountered)</li>
 </ul>
 <p>Second alphabet added, slightly updated decoding logic:</p>
 <details class="success">
@@ -695,8 +694,8 @@ quite a lot of trial and errors:</p>
         <span class="nb">print</span><span class="p">(</span><span class="n">mode</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">w</span><span class="p">:</span><span class="n">w</span><span class="o">+</span><span class="mi">7</span><span class="p">]],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># print letter from alphabet that corresponds to the sequence</span>
 </code></pre></div></td></tr></table></div>
 </details>
-<p>The only thing not mentioned before is I used <code>'</code> instead of <code>BELL</code> character because its not clear what that one means and 
-single quote grammatically made sense. </p>
+<p>The only thing not mentioned before is I used <code>'</code> instead of <code>BELL</code> character because its not clear what <code>BELL</code> means and 
+single quote grammatically makes sense. </p>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
