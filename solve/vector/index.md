@@ -210,11 +210,11 @@ This is CTF framework for binary exploitation, its only "disadvantage" is it has
 
 === "python script"
     ```py
-    paylod = flat(
-        b'DUCTF\x00',
-        '\x00' * 10,
-        pack(0x4051e0),
-        pack(0x4051e0 + 5)
+    paylod = flat( # concatenate all elements one after another
+        b'DUCTF\x00', # first first bytes of the buffer is string DUCTF
+        '\x00' * 10,  # fill in remaining 10 character with null bytes
+        pack(0x4051e0), # address 0x4051e0 converted to 8 bytes in little endian format
+        pack(0x4051e0 + 5) # address 0x4051e5 converted to 8 bytes in little endian format
     )
     print(hexdump(paylod))
     ```
