@@ -13,7 +13,7 @@ Category: reverse engineering
 Solved: 81
 
 !!! quote "Description"
-    
+    I've learnt all the secure coding practices. I only use memory safe languages and military grade encryption. Surely, you can't break into my vault.
 
 Input files:
 

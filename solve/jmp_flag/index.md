@@ -13,7 +13,7 @@ Category: reverse engineering
 Solved: 71
 
 !!! quote "Description"
-    
+    The flag is just a hop, a skip and a jump away.
 
 Input files:
 

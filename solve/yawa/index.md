@@ -13,7 +13,7 @@ Category: binary exploitation
 Solved: 184
 
 !!! quote "Description"
-    
+    Yet another welcome application.
 
 Input files:
 

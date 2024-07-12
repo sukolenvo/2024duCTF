@@ -12,7 +12,7 @@ nav:
   - Shufflebox: ./shufflebox/index.md
   - Number mashing: ./number_mashing/index.md
   - Intercepted transmissions: ./transmissions/index.md
-#  - Vector overflow: ./vector/index.md
+  - Vector overflow: ./vector/index.md
 #  - Decrypt then eval: ./decrypt_eval/index.md
 #  - Yawa: ./yawa/index.md
 #  - DNAdecay: ./dna/index.md

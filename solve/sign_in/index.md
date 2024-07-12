@@ -13,7 +13,7 @@ Category: binary exploitation
 Solved: 95
 
 !!! quote "Description"
-    
+    Please sign in as root to get a shell.
 
 Input files:
 
