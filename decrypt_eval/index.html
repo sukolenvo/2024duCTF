@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../vector/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -267,6 +269,140 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Decrypt then eval
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Decrypt then eval
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-struggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      My struggle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -307,6 +443,57 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempt-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attempt 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -341,7 +528,7 @@
   
 
 
-  <h1>Decrypt then eval writeup</h1>
+  <h1>Decrypt then eval</h1>
 
 <h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link">&para;</a></h2>
 <p>Difficulty: easy</p>
@@ -353,7 +540,47 @@
 </div>
 <p>Input files:</p>
 <details class="info">
-<summary>encoding.txt</summary>
+<summary>decrypt-then-eval.py</summary>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">IV</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">FLAG</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;FLAG&#39;</span><span class="p">,</span> <span class="s1">&#39;DUCTF</span><span class="si">{testflag}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">ct</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;ct: &#39;</span><span class="p">))</span>
+        <span class="n">aes</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">KEY</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CFB</span><span class="p">,</span> <span class="n">IV</span><span class="p">,</span> <span class="n">segment_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">aes</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ct</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invalid ct!&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 </details>
 <p>NB:</p>
 <ul>
@@ -367,7 +594,304 @@
 <ul>
 <li>Solution code was redacted for readability purposes. Due to time pressure during the competition I was using a lot of one-letter variables and questionable code structure.</li>
 </ul>
+<ul>
+<li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
+</ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p>We got only one file to start with:</p>
+<p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="c1"># AES params</span>
+<span class="n">IV</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">FLAG</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;FLAG&#39;</span><span class="p">,</span> <span class="s1">&#39;DUCTF</span><span class="si">{testflag}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># flag variable this will be our target</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">ct</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;ct: &#39;</span><span class="p">))</span>                      <span class="c1"># read input string</span>
+        <span class="n">aes</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">KEY</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CFB</span><span class="p">,</span> <span class="n">IV</span><span class="p">,</span> <span class="n">segment_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="c1"># create AES cipher</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">aes</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ct</span><span class="p">)))</span>   <span class="c1"># decrypt input string, evaluate result value </span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invalid ct!&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Our goal is to get <code>aes.decrypt</code> return string <code>FLAG</code>, then evaluation of it will print value of the 
+<code>FLAG</code> variable back to us.</p>
+<p><abbr title="Advanced Encryption Standard">AES</abbr> is considered to be a secure algorithm. If its used correctly - its practically unbreakable. The key part of
+this statement is "if used correctly". The key issue of the implementation is that it <code>AES.new</code> is created afresh for every
+user input. Given <abbr title="initialization vector">IV</abbr> and KEY are same every time, same cipher keystream is generated for each input. Combined with the fact
+that <abbr title="Cipher Feedback mode: each byte of plaintext is XOR-ed with byte of keystream.">CFB</abbr> mode is used, we can control result of decryption even though we will never know values of KEY and <abbr title="initialization vector">IV</abbr>.</p>
+<p>Lets review strategy of controlling output of <abbr title="Advanced Encryption Standard">AES</abbr> description in <abbr title="Cipher Feedback mode: each byte of plaintext is XOR-ed with byte of keystream.">CFB</abbr> mode when same keystream is applied to every input
+that we provide. Program executes following algorithm:</p>
+<ol>
+<li>Read used input;</li>
+<li>Generate same keystream every time for given KEY nad <abbr title="initialization vector">IV</abbr></li>
+<li>XOR input with keystream</li>
+<li>Evaluate result</li>
+<li>If expression is evaluated successfully - print result, otherwise print "invalid ct!"</li>
+</ol>
+<p>If we know the keystream, we can easily construct input that will give us any desired output. For example if first keystream byte
+was 0x67 and we would want it to be 'F' (ascii value 0x46) then input we are lookign for is <code>0x67 ^ 0x46 = 0x21</code>. Same calculation
+works for any other byte value of the keystream.</p>
+<h3 id="attempt-1">Attempt 1<a class="headerlink" href="#attempt-1" title="Permanent link">&para;</a></h3>
+<p>How would we find the keystream? My first idea was to loop through all possible inputs until I get first and last characters
+to be double quotes, then everything is the middle will be considered as string that will be printed back.
+Once I have bytes the middle, I can calculate input.</p>
+<p>Pseudocode that I used for this:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">attempt_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">16</span>  <span class="c1"># this is our input 16 bytes long (source code mentioned segment size 128)</span>
+<span class="c1"># when same byte of keystream is XOR-ed with 256 different values in input</span>
+<span class="c1"># output will also cover 256 possible values</span>
+<span class="c1"># one of them will be double quote that I am looking for</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>          <span class="c1"># try all possible first bytes</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>      <span class="c1"># try all possible last bytes</span>
+        <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>          <span class="c1"># set first byte to i, last byte to j, all others will be 0</span>
+        <span class="nb">input</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="nb">input</span><span class="p">)))</span>  <span class="c1"># send input to the decrypt-eval program</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># read result line</span>
+        <span class="c1"># if we got something interesting - print it, I expect to double quoted string and single quoted</span>
+        <span class="c1"># and maybe some other inputs that are randomly valid</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;invlaid ct!&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We received response that is not error: &quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>I've run the program and to my surprise I got nothing. There must be some other evaluation errors. I've modified source code of the decrypt-eval program
+to include more debug information printed while keeping functionality intact and increasing 
+performance. With this version I can iterate much quicker:</p>
+<p><div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">modified decrypt-then-eval.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">aes</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">KEY</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CFB</span><span class="p">,</span> <span class="n">IV</span><span class="p">,</span> <span class="n">segment_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="c1"># create AES instance at the start of the program </span>
+<span class="n">keysream</span> <span class="o">=</span> <span class="n">aes</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>                  <span class="c1"># by using input [0,0,0,0....0] extract keystream </span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">ct</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;ct: &#39;</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">xor_arrays</span><span class="p">(</span><span class="n">keysream</span><span class="p">,</span> <span class="n">ct</span><span class="p">)))</span>      <span class="c1"># xor keystream with provided input</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invalid ct!&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>                    <span class="c1"># add exception details to the message</span>
+</code></pre></div></td></tr></table></div>
+Once I rerun my enumeration script I found errors of the eval:</p>
+<ol>
+<li>source code string cannot contain null bytes;</li>
+<li>invalid utf8 encoding</li>
+</ol>
+<p>Looks like there is a bad sequence of bytes somewhere in the middle of the string. So far, all input middle bytes were 0. I think
+we should try different value to deal with encoding problems. For nullbyte error we should try both 0 and 1 as input 
+(only one may produce null-byte, not both at the same time).</p>
+<p>Pair 127,128 should take care of invalid UTF-8 sequence. UTF8 encoded characters are variable length byte sequences.
+It means that frequently used characters like latin alphabet, digits will take only 1 byte, and some less frequently used (emoji etc)
+assign 2-3 byte sequences. Decoding process is quite straightforward: first bit has a special meaning, its a flag indicating
+that current byte is final byte of codepoint. Remaining bits are concatenated to form codepoint value. For example:
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>0XXXXXXX                    -&gt; 1 byte sequence, codepoint is XXXXXXX
+1AAAAAAA 0BBBBBBB           -&gt; 2 byte sequence codepoints is AAAAAAABBBBBBB
+1AAAAAAA 1BBBBBBB 0CCCCCCC  -&gt; 3 byte sequence codepoint is AAAAAAABBBBBBBCCCCCCC
+...
+</code></pre></div></td></tr></table></div>
+1 byte UTF-8 symbols are all defined (matches ascii table for backwards compatibility), 2+ byte sequences have gaps and not 
+every codepoint is defined (ie valid). This is where we get encoding errors. If all characters were 1byte sequences, we would
+not have undefined codepoints error. Pair <code>127, 128</code> should take care of it - flips highes bit, therefore we can
+reach a sequence in output where every byte is starting with 0 and is not a null-byte.</p>
+<p>The resulting candidate values to try for input bytes 1..14 are <code>[0, 1, 127, 128]</code>.</p>
+<h3 id="attempt-2">Attempt 2<a class="headerlink" href="#attempt-2" title="Permanent link">&para;</a></h3>
+<p>Here is script to enumerate through all values 0..255 for bytes 0 and 15, and vocabulary [0, 1, 127, 128]
+for bytes 1..14 as discussed earlier to deal with encoding errors.</p>
+<p>Feel free to skip implementation of the function <code>input_generator</code> as long as you understand the sequence that its producing and 
+reasoning why we want this sequence (I think implementation is not too important for understanding the challenge).
+Loop in the end of the snippet is mostly the same as before.</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">attempt_2.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Generate sequence of states:</span>
+<span class="c1"># [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># ...</span>
+<span class="c1"># [255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># ...</span>
+<span class="c1"># [256, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># [0, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># [1, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+<span class="c1"># ...</span>
+<span class="k">def</span> <span class="nf">input_generator</span><span class="p">():</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">16</span>
+    <span class="n">possible_values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">15</span> <span class="k">else</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">128</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)]</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="p">[</span><span class="n">possible_values</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">state</span><span class="p">))]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">state</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">return</span>
+                <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">input_generator</span><span class="p">():</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="n">state</span><span class="p">)))</span>  <span class="c1"># send input to local bynary</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># read result line</span>
+    <span class="c1"># if we got something interesting - print it, I expect to double quoted string and single quoted</span>
+    <span class="c1"># and maybe some other inputs that are randomly unique</span>
+    <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;invlaid ct!&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We received response that is not error: &quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>While the script is running I had some time (actually quite a lot of time) to calculate total number of iterations. The formula
+is trivial: <code>number of possible values for byte 0</code> * <code>number of possible values for byte 1</code> * <code>number of values for byte 2</code> * ...</p>
+<p>256 * (4 ** 14) * 256 = 17592186044416</p>
+<p>No wonder it takes a lot of time! </p>
+<p>Immediate thought was to reduce number of states for bytes 1..14 from <code>[0, 1, 127, 128]</code> to <code>[0, 128]</code>, unless we are very unlucky
+this should also work. Its also easy to update the script.</p>
+<p>But it doesn't seem to be enough.</p>
+<p>On the second thought, I am running against local application that performs no cryptography, but only XOR of two arrays.
+Its magnitudes faster than remote script. Therefore, proper solution should finish locally under few seconds.
+Besides that, all heavy lifting of cryptography is done on the server side, its very unlikely author expects all teams to run
+thousands of cryptography iterations each, this would be nontrivial question for scalability/costs.</p>
+<h3 id="attempt-3">Attempt 3<a class="headerlink" href="#attempt-3" title="Permanent link">&para;</a></h3>
+<p>My new idea for desired output: first byte is digit, second byte is <code>#</code>, other bytes doesn't matter as
+they will be treated as comment and hence ignored. Complexity of native implementation of such algorithm would be <code>256*256</code>,
+but I am sure given all digits are consecutive in ascii table and any of them works for us, there is a smart lookup of first byte
+that will reduce algorithm complexity to <code>25*256</code> iterations.
+Quick prototyping only to got me a disappointing discovery: value for eval should 
+be a valid python source file without nullbytes and invalid codepoints, even if its a comment.</p>
+<p>At this moment it became clear that I am looking in the wrong direction. Therefore, I went back to the task description and
+original source code.</p>
+<p>Then it struck me: <abbr title="Cipher Feedback mode: each byte of plaintext is XOR-ed with byte of keystream.">CFB</abbr> is a stream cipher, it means I can provide as little as 1 byte and output will also be 1 byte (compared to 
+block ciphers that even for 1 byte input are adding padding and produce fixed blocks of output).</p>
+<h3 id="attempt-4">Attempt 4<a class="headerlink" href="#attempt-4" title="Permanent link">&para;</a></h3>
+<p>Algorithm:</p>
+<ol>
+<li>Iterate through all possible values of byte 0 (0..255) until we receive digit as an output;</li>
+<li>Calculate keystream byte using formula <code>k[i] = input[i] ^ ord(output[i])</code></li>
+<li>Calculate input for byte 0 that will produce a space as output using formula <code>input[0] = k[0] ^ ord(' ')</code></li>
+<li>Use value from step 3 as prefix, repeat step 1-3 to calculate other keystream bytes.</li>
+<li>Now we can calculate input that will produce <code>FLAG</code>: <code>input[0] = k[i] ^ ord('F')</code>, <code>input[1] = k[1] ^ ord('L')</code>.</li>
+</ol>
+<p>Complexity of the algorithm is 4*256 iterations.</p>
+<details class="success">
+<summary>solve.py</summary>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;REMOTE&#39;</span><span class="p">]:</span>
+    <span class="n">remote_server</span> <span class="o">=</span> <span class="s1">&#39;2024.ductf.dev&#39;</span>
+    <span class="n">remote_port</span> <span class="o">=</span> <span class="mi">30020</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">remote_server</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">process</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;decrypt-then-eval.py&quot;</span><span class="p">])</span>
+
+<span class="n">keystream</span> <span class="o">=</span> <span class="p">[]</span>                      <span class="c1"># store keystream values we idenitified so far</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>                  <span class="c1"># we will repeat for 4 bytes</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>            <span class="c1"># try all possible values for next byte</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;: &#39;</span><span class="p">)</span>         <span class="c1"># wait for decrypt-then-eval.py to init</span>
+        <span class="c1"># use keystream prefix XORed with space (eval trims spaces) as prefix</span>
+        <span class="c1"># and append candidate value of next input `i`  </span>
+        <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">([</span><span class="n">p</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">keystream</span><span class="p">])</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">()))</span>
+        <span class="c1"># read result</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;invalid ct!&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>  <span class="c1"># if not error</span>
+            <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;0&#39;</span><span class="p">:</span>  <span class="c1"># if result is 0, technically we can stop on any digit, but its not a substantial difference</span>
+                <span class="n">keystream</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">))</span> <span class="c1"># append keystream value we found</span>
+                <span class="k">break</span>                          <span class="c1"># on the the next byte</span>
+
+<span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;: &#39;</span><span class="p">)</span>
+<span class="c1"># calculate input that once decrypted produces FLAG</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([</span><span class="n">keystream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">),</span> <span class="n">keystream</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">),</span> <span class="n">keystream</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">),</span> <span class="n">keystream</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)])</span>
+<span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">flag</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
@@ -400,6 +924,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../vector/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vector overflow">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Vector overflow
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
