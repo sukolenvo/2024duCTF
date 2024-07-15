@@ -13,7 +13,7 @@ nav:
   - Number mashing: ./number_mashing/index.md
   - Intercepted transmissions: ./transmissions/index.md
   - Vector overflow: ./vector/index.md
-#  - Decrypt then eval: ./decrypt_eval/index.md
+  - Decrypt then eval: ./decrypt_eval/index.md
 #  - Yawa: ./yawa/index.md
 #  - DNAdecay: ./dna/index.md
 #  - Sign in: ./sign_in/index.md

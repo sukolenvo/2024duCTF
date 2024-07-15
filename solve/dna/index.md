@@ -33,6 +33,8 @@ NB:
 
 * Solution code was redacted for readability purposes. Due to time pressure during the competition I was using a lot of one-letter variables and questionable code structure.
 
+* I am using gdb with [pwndbg](https://github.com/pwndbg/pwndbg) plugin
+
 ## My struggle
 
 

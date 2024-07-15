@@ -38,6 +38,8 @@ NB:
 
 * Solution code was redacted for readability purposes. Due to time pressure during the competition I was using a lot of one-letter variables and questionable code structure.
 
+* I am using gdb with [pwndbg](https://github.com/pwndbg/pwndbg) plugin
+
 ## My struggle
 
 Quick google CCIR476 leads us to wiki page that explains that CCIR476 is a character enconding used in radio data protocol.
