@@ -221,8 +221,8 @@ $ readelf -s libc.so.6  | grep system
 ```
 This means that `system` function will be always `0x50d70-0x29d10 = 0x27060` bytes apart from `__libc_start_call_main` function.
 For our our sample memory dump we saw return address 0x7ffff7c29d90 - we return to the middle of `libc_start_call_main`,
-so we can infer that libc library is mapped to address `0x7ffff7c29d90 -0x29d90 = 0x7ffff7c00000` (segments are typically round numbers).
-So `system` address is `0x7ffff7c00000+0x50d70 = 0x7ffff7c50d70`.
+so we can infer that libc library is mapped to address `0x7ffff7c29d90 - 0x29d90 = 0x7ffff7c00000` (segments are typically round numbers).
+So `system` address is `0x7ffff7c00000 + 0x50d70 = 0x7ffff7c50d70`.
 
 We can also double check our calculations by checking process memory mapping using gdb or cat:
 
