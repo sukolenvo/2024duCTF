@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../yawa/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -307,6 +309,89 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    DNAdecay
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    DNAdecay
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-struggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      My struggle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -381,7 +466,7 @@
   
 
 
-  <h1>DNAdecay writeup</h1>
+  <h1>DNAdecay</h1>
 
 <h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link">&para;</a></h2>
 <p>Difficulty: easy</p>
@@ -393,7 +478,483 @@
 </div>
 <p>Input files:</p>
 <details class="info">
-<summary>encoding.txt</summary>
+<summary>dna.rb</summary>
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">require</span><span class="w"> </span><span class="s2">&quot;doublehelix&quot;</span>
+
+<span class="w"> </span><span class="no">AT</span>
+<span class="n">A</span><span class="o">--</span><span class="n">T</span>
+<span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="n">A</span>
+<span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w"> </span><span class="n">G</span><span class="o">----</span><span class="w"> </span>
+<span class="w">     </span><span class="o">--</span><span class="n">C</span>
+<span class="w">   </span><span class="n">T</span><span class="o">---</span><span class="n">A</span>
+<span class="w">    </span><span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w">     </span><span class="no">AT</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">    </span><span class="n">T</span><span class="o">--</span><span class="w"> </span>
+<span class="w">   </span><span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="w"> </span><span class="n">A</span><span class="o">---</span><span class="w"> </span><span class="n">T</span>
+<span class="n">T</span><span class="w"> </span><span class="o">---</span><span class="n">A</span>
+<span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="n">C</span><span class="o">--</span><span class="n">G</span>
+<span class="w"> </span><span class="no">AT</span>
+<span class="w"> </span><span class="no">CG</span>
+<span class="w">  </span><span class="o">-</span><span class="n">T</span>
+<span class="n">A</span><span class="o">---</span><span class="n">T</span>
+<span class="n">G</span><span class="o">---</span><span class="w">  </span>
+<span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">T</span>
+<span class="w">  </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w">   </span><span class="n">G</span><span class="w">   </span><span class="n">C</span>
+<span class="w">     </span><span class="o">--</span><span class="n">C</span>
+<span class="w">      </span><span class="n">C</span>
+<span class="w">      </span><span class="n">C</span>
+<span class="w">    </span><span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w">   </span><span class="n">A</span><span class="o">--</span><span class="w"> </span><span class="n">T</span>
+<span class="w">  </span><span class="n">A</span><span class="o">--</span><span class="w">  </span><span class="n">T</span>
+<span class="w"> </span><span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">C</span>
+<span class="n">A</span><span class="o">----</span><span class="n">T</span>
+<span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w"> </span><span class="no">GC</span>
+<span class="w"> </span><span class="no">CG</span>
+<span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="n">A</span><span class="o">---</span><span class="w"> </span>
+<span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w"> </span><span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">A</span>
+<span class="w">  </span><span class="n">C</span><span class="o">----</span><span class="n">G</span>
+<span class="w">   </span><span class="n">T</span><span class="o">---</span><span class="w"> </span>
+<span class="w">    </span><span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w">      </span><span class="n">A</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">    </span><span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w">   </span><span class="n">A</span><span class="o">-</span><span class="w">  </span><span class="n">T</span>
+<span class="w">   </span><span class="o">----</span><span class="n">T</span>
+<span class="w"> </span><span class="n">C</span><span class="o">----</span><span class="n">G</span>
+<span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">T</span>
+<span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w"> </span><span class="no">AT</span>
+<span class="w">  </span><span class="n">A</span>
+<span class="n">A</span><span class="w"> </span><span class="o">-</span><span class="n">T</span>
+<span class="w"> </span><span class="o">---</span><span class="n">A</span>
+<span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="n">A</span>
+<span class="w"> </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w">  </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w">   </span><span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="w">    </span><span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w">     </span><span class="no">AT</span>
+<span class="w">      </span><span class="n">C</span>
+<span class="w">    </span><span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="n">C</span>
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">--</span><span class="n">G</span>
+<span class="w">  </span><span class="n">C</span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">G</span>
+<span class="w"> </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">T</span>
+<span class="n">G</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">C</span>
+<span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w"> </span><span class="n">G</span><span class="w"> </span>
+<span class="w"> </span><span class="no">AT</span>
+<span class="w"> </span><span class="o">--</span><span class="n">T</span>
+<span class="n">T</span><span class="o">---</span><span class="w"> </span>
+<span class="w"> </span><span class="o">----</span><span class="n">T</span>
+<span class="w"> </span><span class="n">T</span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">A</span>
+<span class="w">   </span><span class="o">----</span><span class="w"> </span>
+<span class="w">   </span><span class="n">C</span><span class="o">---</span><span class="n">G</span>
+<span class="w">    </span><span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w">     </span><span class="no">AT</span>
+<span class="w">     </span><span class="n">C</span><span class="w"> </span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>
+<span class="w">       </span><span class="n">C</span>
+<span class="w">  </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="w"> </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="n">A</span><span class="o">----</span><span class="w"> </span>
+<span class="n">G</span><span class="w">  </span><span class="o">-</span><span class="n">C</span>
+<span class="n">C</span><span class="o">-</span><span class="w"> </span><span class="n">G</span>
+<span class="w"> </span><span class="n">T</span><span class="w"> </span>
+<span class="w"> </span><span class="n">C</span><span class="w"> </span>
+<span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="n">C</span>
+<span class="w"> </span><span class="o">--</span><span class="w">  </span>
+<span class="n">G</span><span class="o">----</span><span class="w"> </span>
+<span class="w"> </span><span class="n">C</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">G</span>
+<span class="w">  </span><span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="w">  </span>
+<span class="w">   </span><span class="n">C</span><span class="o">--</span><span class="w"> </span><span class="n">G</span>
+<span class="w">    </span><span class="n">A</span><span class="o">--</span><span class="n">T</span>
+<span class="w">     </span><span class="n">G</span><span class="w"> </span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">    </span><span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w">   </span><span class="n">C</span><span class="o">---</span><span class="n">G</span>
+<span class="w">  </span><span class="n">C</span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">G</span>
+<span class="w"> </span><span class="n">G</span><span class="o">---</span><span class="w"> </span><span class="n">C</span>
+<span class="n">A</span><span class="o">---</span><span class="w">  </span>
+<span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w"> </span><span class="n">A</span><span class="w"> </span>
+<span class="w"> </span><span class="no">TA</span>
+<span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w">  </span><span class="o">--</span><span class="w"> </span>
+<span class="w"> </span><span class="o">----</span><span class="w"> </span>
+<span class="w"> </span><span class="n">G</span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="w">  </span><span class="n">A</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">T</span>
+<span class="w">   </span><span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>
+<span class="w">    </span><span class="n">A</span><span class="o">--</span><span class="n">T</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">    </span><span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="n">A</span>
+<span class="w">   </span><span class="n">A</span><span class="o">---</span><span class="n">T</span>
+<span class="w">  </span><span class="n">T</span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">A</span>
+<span class="w"> </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="w"> </span><span class="o">----</span><span class="w"> </span>
+<span class="n">G</span><span class="o">--</span><span class="w"> </span><span class="n">C</span>
+<span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w"> </span><span class="no">GC</span>
+<span class="w">  </span><span class="n">A</span>
+<span class="n">A</span><span class="o">-</span><span class="w">  </span>
+<span class="n">A</span><span class="w"> </span><span class="o">--</span><span class="n">T</span>
+<span class="n">C</span><span class="o">----</span><span class="n">G</span>
+<span class="w"> </span><span class="n">C</span><span class="o">----</span><span class="w"> </span>
+<span class="w">  </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w">   </span><span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="w">     </span><span class="no">CG</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">    </span><span class="n">T</span><span class="o">--</span><span class="n">A</span>
+<span class="w">   </span><span class="n">T</span><span class="o">---</span><span class="w"> </span>
+<span class="w">  </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w"> </span><span class="n">G</span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="n">A</span><span class="o">---</span><span class="w">  </span>
+<span class="n">A</span><span class="o">--</span><span class="w">  </span>
+<span class="n">G</span><span class="o">--</span><span class="w"> </span>
+<span class="w"> </span><span class="no">GC</span>
+<span class="w"> </span><span class="no">AT</span>
+<span class="n">A</span><span class="o">--</span><span class="n">T</span>
+<span class="n">T</span><span class="o">---</span><span class="w"> </span>
+<span class="n">A</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">T</span>
+<span class="w"> </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="w">  </span><span class="n">G</span><span class="w"> </span><span class="o">---</span><span class="w"> </span>
+<span class="w">   </span><span class="n">T</span><span class="w"> </span><span class="o">--</span><span class="n">A</span>
+<span class="w">    </span><span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w">      </span><span class="n">C</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">    </span><span class="n">A</span><span class="o">-</span><span class="w"> </span><span class="n">T</span>
+<span class="w">   </span><span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="w">  </span><span class="n">C</span><span class="w"> </span><span class="o">---</span><span class="n">G</span>
+<span class="w">  </span><span class="o">---</span><span class="w"> </span><span class="n">T</span>
+<span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">A</span>
+<span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="w"> </span><span class="o">--</span><span class="n">A</span>
+<span class="w">  </span><span class="n">A</span>
+<span class="w"> </span><span class="n">G</span><span class="w"> </span>
+<span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="n">A</span><span class="w"> </span><span class="o">--</span><span class="n">T</span>
+<span class="n">C</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">G</span>
+<span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">---</span><span class="n">T</span>
+<span class="w">   </span><span class="o">----</span><span class="n">C</span>
+<span class="w">   </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w">  </span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>
+<span class="w">     </span><span class="no">CG</span>
+<span class="w">      </span><span class="n">C</span>
+<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="w">   </span><span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="w">  </span><span class="n">G</span><span class="w"> </span><span class="o">-</span><span class="w">  </span><span class="n">C</span>
+<span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">---</span><span class="w"> </span>
+<span class="w">  </span><span class="o">---</span><span class="w"> </span>
+<span class="w"> </span><span class="o">---</span><span class="n">T</span>
+<span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">A</span>
+<span class="w"> </span><span class="n">G</span><span class="w"> </span>
+<span class="w">  </span><span class="n">C</span>
+<span class="n">G</span><span class="o">-</span><span class="w">  </span>
+<span class="n">A</span><span class="w"> </span><span class="o">--</span><span class="n">T</span>
+<span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">---</span><span class="n">A</span>
+<span class="w">  </span><span class="n">T</span><span class="o">---</span><span class="w"> </span><span class="n">A</span>
+<span class="w">   </span><span class="n">G</span><span class="w"> </span><span class="o">--</span><span class="n">C</span>
+<span class="w">    </span><span class="n">G</span><span class="o">-</span><span class="w">  </span>
+<span class="w">     </span><span class="no">TA</span>
+<span class="w">      </span><span class="n">A</span>
+<span class="w">    </span><span class="n">C</span><span class="o">--</span><span class="n">G</span>
+<span class="w">   </span><span class="n">G</span><span class="o">---</span><span class="w"> </span>
+<span class="w">  </span><span class="n">C</span><span class="o">----</span><span class="w"> </span>
+<span class="w"> </span><span class="n">G</span><span class="o">----</span><span class="n">C</span>
+<span class="n">C</span><span class="o">----</span><span class="n">G</span>
+<span class="n">G</span><span class="o">---</span><span class="n">C</span>
+<span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="n">A</span>
+<span class="w"> </span><span class="no">TA</span>
+
+<span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="n">A</span><span class="o">---</span><span class="n">T</span>
+<span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="w">  </span><span class="o">----</span><span class="n">T</span>
+<span class="w">  </span><span class="n">G</span><span class="o">----</span><span class="w"> </span>
+<span class="w">   </span><span class="n">G</span><span class="o">---</span><span class="w"> </span>
+<span class="w">    </span><span class="n">A</span><span class="o">--</span><span class="n">T</span>
+<span class="w">     </span><span class="no">AT</span>
+<span class="w">     </span><span class="no">GC</span>
+<span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">A</span>
+<span class="w">   </span><span class="n">T</span><span class="o">---</span><span class="w"> </span>
+<span class="w">  </span><span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">C</span>
+<span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">---</span><span class="n">C</span>
+<span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">A</span>
+<span class="n">A</span><span class="o">--</span><span class="w"> </span><span class="n">T</span>
+<span class="n">A</span><span class="o">--</span><span class="n">T</span>
+<span class="w">  </span><span class="n">C</span>
+<span class="w"> </span><span class="no">TA</span>
+<span class="n">A</span><span class="o">-</span><span class="w"> </span><span class="n">T</span>
+<span class="n">T</span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>
+<span class="n">A</span><span class="o">----</span><span class="n">T</span>
+<span class="w"> </span><span class="n">A</span><span class="o">----</span><span class="n">T</span>
+<span class="w">  </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="w">   </span><span class="n">A</span><span class="w"> </span><span class="o">--</span><span class="n">T</span>
+<span class="w">    </span><span class="n">G</span><span class="o">--</span><span class="n">C</span>
+<span class="w">     </span><span class="n">A</span><span class="w"> </span>
+<span class="w">     </span><span class="no">TA</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">-</span><span class="n">T</span>
+<span class="w">    </span><span class="o">---</span><span class="w"> </span>
+<span class="w">  </span><span class="n">G</span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="n">C</span>
+<span class="w"> </span><span class="n">T</span><span class="o">----</span><span class="n">A</span>
+<span class="n">T</span><span class="w"> </span><span class="o">---</span><span class="n">A</span>
+<span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="n">C</span>
+<span class="n">C</span><span class="o">--</span><span class="w"> </span>
+<span class="w">  </span><span class="n">T</span>
+<span class="w"> </span><span class="no">CG</span>
+<span class="n">A</span><span class="o">-</span><span class="w"> </span><span class="n">T</span>
+</code></pre></div></td></tr></table></div>
 </details>
 <p>NB:</p>
 <ul>
@@ -411,6 +972,337 @@
 <li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<p><strong>Disclaimer</strong>: this is the first time I've opened ruby script, therefore technique is primitive and far from optimal.</p>
+<p>At this point I can't tell if file we were given is a valid ruby script or first we have to decode the DNA it somehow before running.
+There is only one searchable string to start with: <code>require "doublehelix"</code> (I don't believe googling all those AT TA can be helpful). Quickly landed at following
+library on github <a href="https://github.com/mame/doublehelix">https://github.com/mame/doublehelix</a>.</p>
+<p>Entire encoding and decoding is implemented in <a href="https://github.com/mame/doublehelix/blob/master/lib/doublehelix.rb">less than 20 lines</a>:
+<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">source code of doublehelix.rb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="vg">$code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="no">Object</span><span class="o">.</span><span class="n">instance_eval</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">const_missing</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="vg">$code</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="o">.</span><span class="n">to_s</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
+<span class="w">  </span><span class="n">remove_const</span><span class="p">(</span><span class="ss">:GC</span><span class="p">)</span><span class="w">  </span><span class="c1"># Holy moly!</span>
+<span class="k">end</span>
+<span class="nb">at_exit</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;AT&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;00&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CG&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GC&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;TA&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;11&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nb">eval</span><span class="p">(</span><span class="o">[</span><span class="vg">$code</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/../</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="w"> </span><span class="n">dict</span><span class="o">[</span><span class="n">s</span><span class="o">]</span><span class="w"> </span><span class="p">}</span><span class="o">].</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;b*&quot;</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">doublehelix</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+<span class="w">  </span><span class="n">dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;00&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;T&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nb">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="o">]]</span>
+<span class="w">  </span><span class="nb">format</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">format</span><span class="o">.</span><span class="n">reverse</span>
+<span class="w">  </span><span class="sx">%(require &quot;doublehelix&quot;</span><span class="se">\n\n</span><span class="sx">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">src</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;b*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/../</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">s</span><span class="o">|</span>
+<span class="w">    </span><span class="nb">format</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">format</span><span class="o">.</span><span class="n">shift</span><span class="p">)</span>
+<span class="w">    </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dict</span><span class="o">[</span><span class="n">s</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dist</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></td></tr></table></div></p>
+<p>I wasn't able to install the package in my machine and run hello world (probably my environment is not properly set up). 
+But, replacing <code>require "doublehelix"</code> with <a href="https://github.com/mame/doublehelix/blob/2e238ab65fa43abae4f950a580c163c9a5e45e92/lib/doublehelix.rb">contents of the library</a>
+did the trick.</p>
+<p>After that I've tried to run source code that we were given in the challenge. Of cause, it was not so easy: task description
+mentions <em>but it seems to have corrupted. Can you help me recover this research?</em> So we have to fix the script first.</p>
+<p>At lines 7 and 12 of the source code we can see that there are only 4 possible pairs of gens (AT, CG, GC, TA). As a first path
+I went through the script and repaired all lines that included 1 letter: </p>
+<ul>
+<li>lines with A should have T</li>
+<li>lines with T should have A</li>
+<li>liens with C should have G</li>
+<li>lines with G should have C</li>
+</ul>
+<p>Its easy to pick a sequence to use (for example AT or TA) visually (fit DNA picture).</p>
+<p>Now lets work on empty lines. We will have to guess what it is. For that I've added few modifications:</p>
+<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">modied dna.rb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="vg">$code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="no">Object</span><span class="o">.</span><span class="n">instance_eval</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">const_missing</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="vg">$code</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="o">.</span><span class="n">to_s</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
+<span class="w">  </span><span class="n">remove_const</span><span class="p">(</span><span class="ss">:GC</span><span class="p">)</span><span class="w">  </span><span class="c1"># Holy moly!</span>
+<span class="k">end</span>
+<span class="nb">at_exit</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="c1"># extended dictianary with 4 new gens: V0, V1, V2, V3 that produce same bits as existing ones</span>
+<span class="w">  </span><span class="c1"># now I can enter my guesses and still able to distinct given input from my guesses</span>
+<span class="w">  </span><span class="n">dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;AT&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;00&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CG&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GC&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;TA&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;11&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;V0&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;00&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;V1&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;V2&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;V3&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;11&quot;</span><span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1"># print concatenated source code for debug purposes</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="vg">$code</span><span class="w">  </span>
+<span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="vg">$code</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/../</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="w"> </span><span class="n">dict</span><span class="o">[</span><span class="n">s</span><span class="o">]</span><span class="w"> </span><span class="p">}</span><span class="o">]</span>
+<span class="w">  </span><span class="c1"># print decoded bits for debug purposes</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="n">res</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="n">res</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;b*&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">doublehelix</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+<span class="w">  </span><span class="n">dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;00&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;T&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="o">=&gt;[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nb">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="o">]]</span>
+<span class="w">  </span><span class="nb">format</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">format</span><span class="o">.</span><span class="n">reverse</span>
+<span class="w">  </span><span class="sx">%(require &quot;doublehelix&quot;</span><span class="se">\n\n</span><span class="sx">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">src</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;b*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/../</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">s</span><span class="o">|</span>
+<span class="w">    </span><span class="nb">format</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">format</span><span class="o">.</span><span class="n">shift</span><span class="p">)</span>
+<span class="w">    </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dict</span><span class="o">[</span><span class="n">s</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dist</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># removed all spaces and punctuation symbols as it was giving errors and not used in decoding anyway</span>
+<span class="no">AT</span>
+<span class="no">AT</span>
+<span class="no">TA</span>
+<span class="no">GC</span>
+<span class="no">GC</span>
+<span class="o">...</span>
+<span class="no">GC</span>
+<span class="no">AT</span>
+<span class="no">AT</span>
+<span class="no">TA</span>
+<span class="no">AT</span>
+<span class="no">TA</span>
+<span class="c1"># I&#39;ve replaced all empty lines with V0 as a starting point</span>
+<span class="no">V0</span>
+<span class="no">CG</span>
+<span class="no">GC</span>
+<span class="no">AT</span>
+<span class="no">CG</span>
+<span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Now lets run it:
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ruby<span class="w"> </span>dna_modified.rb
+ATATTAGCGCGCTAGCATGCTAGCTAATTAGCCGATCGATATGCATGCGCGCGCGCTAATATGCATGCGCGCCGGCATGCTACGTAGCTAGCTAATATCGATGCTAATTAATTATAGCGCGCTAATGCGCCGCGGCATGCTAGCATATTAATTAV0CGGCATCGATGCTATAATGCCGTACGGCV0GCCGGCCGATGCGCGCCGCGGCATGCTAATTATAV0V0GCATTAATGCGCTAATTATAV0GCTAGCTAATATCGCGGCGCGCCGGCTATAGCGCATATGCGCATATTAATTAGCTAGCGCGCATGCCGATTAGCTATAGCGCATCGATGCTATACGGCGCGCGCGCV0ATTAGCGCGCATGCTATAGCGCTATACGGCCGGCCGGCTATAV0GCATGCATGCGCATATGCTATAGCGCTAATATGCTAATTAATATTAATGCATTAATV0GCTATAGCCGATCGAT
+<span class="m">0000111010101110001011101100111001000100001000101010101011000010001010100110001011011110111011000001001011001100111110101011001010010110001011100000110011010110000100101111001001110110011001100100101010010110001011001111010110001100101011001111011011101100000101101010011011111010000010100000110011101110101000100100111011111010000100101111011010101010010011101010001011111010111101100110011011110110001000101000001011111010110000101100110000110010001100011011111001000100</span>
+puts<span class="s2">&quot;DUCTF{7H3_Mit0kHOnfRi4�15o7he_P0wEr_HoUrE_ofoDA_C3L�}&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Looking good, we can even read most of the flag (except for few characters where guess is wrong).</p>
+<p>We can continue this in python now:
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># source code sequence we recieve from ruby</span>
+<span class="nb">input</span><span class="o">=</span><span class="s2">&quot;ATATTAGCGCGCTAGCATGCTAGCTAATTAGCCGATCGATATGCATGCGCGCGCGCTAATATGCATGCGCGCCGGCATGCTACGTAGCTAGCTAATATCGATGCTAATTAATTATAGCGCGCTAATGCGCCGCGGCATGCTAGCATATTAATTAV0CGGCATCGATGCTATAATGCCGTACGGCV0GCCGGCCGATGCGCGCCGCGGCATGCTAATTATAV0V0GCATTAATGCGCTAATTATAV0GCTAGCTAATATCGCGGCGCGCCGGCTATAGCGCATATGCGCATATTAATTAGCTAGCGCGCATGCCGATTAGCTATAGCGCATCGATGCTATACGGCGCGCGCGCV0ATTAGCGCGCATGCTATAGCGCTATACGGCCGGCCGGCTATAV0GCATGCATGCGCATATGCTATAGCGCTAATATGCTAATTAATATTAATGCATTAATV0GCTATAGCCGATCGAT&quot;</span>
+
+<span class="c1"># same dictinary</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;AT&quot;</span><span class="p">:</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;CG&quot;</span><span class="p">:</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;GC&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;TA&quot;</span><span class="p">:</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="s2">&quot;V0&quot;</span><span class="p">:</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;V1&quot;</span><span class="p">:</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;V2&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;V3&quot;</span><span class="p">:</span><span class="s2">&quot;11&quot;</span>  <span class="p">}</span>
+
+<span class="c1"># reimplemented deconding logic</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">),</span> <span class="mi">8</span><span class="p">):</span> <span class="c1"># iterate 8 character at a time</span>
+    <span class="c1"># using dictinary convert every 2 characters to binary</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">]])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># print orignal 8 characters, its bynary value and ascii character</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">],</span> <span class="n">val</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Output is convenient to work with and fix guesses: search for V0, check if character makes sense or try V1/V2/V3. Printable characters
+in ascii table all starts with 01 so that is a good hint, other bites easy to guess: </p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div><pre><span></span><code>ATATTAGC 01110000 p
+GCGCTAGC 01110101 u
+ATGCTAGC 01110100 t
+TAATTAGC 01110011 s
+CGATCGAT 00100010 &quot;
+ATGCATGC 01000100 D
+GCGCGCGC 01010101 U
+TAATATGC 01000011 C
+ATGCGCGC 01010100 T
+CGGCATGC 01000110 F
+TACGTAGC 01111011 {
+TAGCTAAT 00110111 7
+ATCGATGC 01001000 H
+TAATTAAT 00110011 3
+TATAGCGC 01011111 _
+GCTAATGC 01001101 M
+GCCGCGGC 01101001 i
+ATGCTAGC 01110100 t
+ATATTAAT 00110000 0
+<span class="hll">TAV0CGGC 01100011 c
+</span>ATCGATGC 01001000 H
+TATAATGC 01001111 O
+CGTACGGC 01101110 n
+<span class="hll">V0GCCGGC 01100100 d
+</span>CGATGCGC 01010010 R
+GCCGCGGC 01101001 i
+ATGCTAAT 00110100 4
+<span class="hll">TATAV0V0 00001111 
+</span>GCATTAAT 00110001 1
+GCGCTAAT 00110101 5
+<span class="hll">TATAV0GC 01001111 O
+</span>TAGCTAAT 00110111 7
+ATCGCGGC 01101000 h
+GCGCCGGC 01100101 e
+TATAGCGC 01011111 _
+ATATGCGC 01010000 P
+ATATTAAT 00110000 0
+TAGCTAGC 01110111 w
+GCGCATGC 01000101 E
+CGATTAGC 01110010 r
+TATAGCGC 01011111 _
+ATCGATGC 01001000 H
+TATACGGC 01101111 o
+GCGCGCGC 01010101 U
+<span class="hll">V0ATTAGC 01110000 p
+</span>GCGCATGC 01000101 E
+TATAGCGC 01011111 _
+TATACGGC 01101111 o
+CGGCCGGC 01100110 f
+TATAV0GC 01001111 O
+ATGCATGC 01000100 D
+GCATATGC 01000001 A
+TATAGCGC 01011111 _
+TAATATGC 01000011 C
+TAATTAAT 00110011 3
+ATTAATGC 01001100 L
+<span class="hll">ATTAATV0 00001100 
+</span>GCTATAGC 01111101 }
+CGATCGAT 00100010 &quot;
+</code></pre></div></td></tr></table></div>
+<p>After all fixed, print the flag:</p>
+<details class="success">
+<summary>solve.py</summary>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># fixed source code</span>
+<span class="nb">input</span><span class="o">=</span><span class="s2">&quot;ATATTAGCGCGCTAGCATGCTAGCTAATTAGCCGATCGATATGCATGCGCGCGCGCTAATATGCATGCGCGCCGGCATGCTACGTAGCTAGCTAATATCGATGCTAATTAATTATAGCGCGCTAATGCGCCGCGGCATGCTAGCATATTAATTAV0CGGCATCGATGCTATAATGCCGTACGGCV0GCCGGCCGATGCGCGCCGCGGCATGCTAATTATAV2V2GCATTAATGCGCTAATTATAV2GCTAGCTAATATCGCGGCGCGCCGGCTATAGCGCATATGCGCATATTAATTAGCTAGCGCGCATGCCGATTAGCTATAGCGCATCGATGCTATACGGCGCGCGCGCV3ATTAGCGCGCATGCTATAGCGCTATACGGCCGGCCGGCTATAV2GCATGCATGCGCATATGCTATAGCGCTAATATGCTAATTAATATTAATGCATTAATV2GCTATAGCCGATCGAT&quot;</span>
+
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;AT&quot;</span><span class="p">:</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;CG&quot;</span><span class="p">:</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;GC&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;TA&quot;</span><span class="p">:</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="s2">&quot;V0&quot;</span><span class="p">:</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;V1&quot;</span><span class="p">:</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;V2&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;V3&quot;</span><span class="p">:</span><span class="s2">&quot;11&quot;</span>  <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">),</span> <span class="mi">8</span><span class="p">):</span> <span class="c1"># iterate 8 characters at a time</span>
+    <span class="c1"># using dictionary convert every 2 characters to binary</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">]])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># print decoded character</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
@@ -443,6 +1335,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../yawa/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Yawa">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Yawa
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

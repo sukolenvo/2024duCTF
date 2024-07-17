@@ -14,6 +14,8 @@
         <link rel="prev" href="../decrypt_eval/">
       
       
+        <link rel="next" href="../dna/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
@@ -405,6 +407,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dna/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNAdecay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -787,8 +809,8 @@ $<span class="w"> </span>readelf<span class="w"> </span>-s<span class="w"> </spa
 </code></pre></div></td></tr></table></div>
 This means that <code>system</code> function will be always <code>0x50d70-0x29d10 = 0x27060</code> bytes apart from <code>__libc_start_call_main</code> function.
 For our our sample memory dump we saw return address 0x7ffff7c29d90 - we return to the middle of <code>libc_start_call_main</code>,
-so we can infer that libc library is mapped to address <code>0x7ffff7c29d90 -0x29d90 = 0x7ffff7c00000</code> (segments are typically round numbers).
-So <code>system</code> address is <code>0x7ffff7c00000+0x50d70 = 0x7ffff7c50d70</code>.</p>
+so we can infer that libc library is mapped to address <code>0x7ffff7c29d90 - 0x29d90 = 0x7ffff7c00000</code> (segments are typically round numbers).
+So <code>system</code> address is <code>0x7ffff7c00000 + 0x50d70 = 0x7ffff7c50d70</code>.</p>
 <p>We can also double check our calculations by checking process memory mapping using gdb or cat:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">gdb debugger</label><label for="__tabbed_1_2">bash</label></div>
 <div class="tabbed-content">
@@ -1147,6 +1169,22 @@ I've selected few that will help me to build return to libc chain:</p>
             </div>
           </a>
         
+        
+          
+          <a href="../dna/" class="md-footer__link md-footer__link--next" aria-label="Next: DNAdecay">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                DNAdecay
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
