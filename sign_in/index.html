@@ -327,6 +327,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sssshhhh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sssshhhh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -366,6 +386,30 @@
       My struggle
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -413,8 +457,281 @@
 </div>
 <p>Input files:</p>
 <details class="info">
-<summary>encoding.txt</summary>
+<summary>sign-in.c</summary>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/random.h&gt;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">uid</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">username</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">password</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">user_t</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">user_entry</span><span class="w"> </span><span class="n">user_entry_t</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">user_entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user_t</span><span class="o">*</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">user_entry_t</span><span class="w"> </span><span class="n">user_list</span><span class="p">;</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">UID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">menu</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">choice</span><span class="p">;</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;1. Sign up&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;2. Sign in&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;3. Remove account&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;4. Get shell&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;&gt; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choice</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">choice</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">sign_up</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user_t</span><span class="o">*</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">user_t</span><span class="p">));</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">user_entry_t</span><span class="p">));</span>
+<span class="w">    </span><span class="n">user</span><span class="o">-&gt;</span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UID</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;username: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="o">-&gt;</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;password: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="o">-&gt;</span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">user_list</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">remove_account</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">uid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">user_list</span><span class="p">;</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">uid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">prev</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">prev</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="p">);</span>
+<span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">curr</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">curr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">long</span><span class="w"> </span><span class="nf">sign_in</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">username</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">password</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;username: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;password: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">user_list</span><span class="p">;</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">memcmp</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Logging in as %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">uid</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">curr</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">init</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_t</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">.</span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="p">.</span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;root&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">getrandom</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">user_list</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_list</span><span class="p">.</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_list</span><span class="p">.</span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">root</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">sign_up</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sign_in</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Invalid username or password!&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Please sign in first!&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">remove_account</span><span class="p">(</span><span class="n">uid</span><span class="p">);</span>
+<span class="w">                </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Please sign in as root first!&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 </details>
+<ul>
+<li><a href="https://github.com/DownUnderCTF/Challenges_2024_Public/blob/f2797a33d8f5851508f37e854afceedf85eee8a3/pwn/sign-in/src/sign-in">sign-in binary</a></li>
+</ul>
 <p>NB:</p>
 <ul>
 <li>
@@ -431,6 +748,555 @@
 <li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p><code>user_entry</code> structure is a typical implementation of doubly linked list (<a href="https://en.wikipedia.org/wiki/Doubly_linked_list">wiki</a>).</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">user_entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user_t</span><span class="o">*</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>In memory it would look like like this:</p>
+<ul>
+<li>3 user_entries with addresses 0x100000, 0x100040, 0x100080</li>
+<li>3 user accounts with addresses 0x100020, 0x100060, 0x1000a0 (root, bob and alice)</li>
+</ul>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 9.0.0 (20230911.1827)
+ -->
+<!-- Title: g Pages: 1 -->
+<div><svg width="735pt" height="269pt"
+ viewBox="0.00 0.00 735.00 269.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 265.25)">
+<title>g</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-265.25 731,-265.25 731,4 -4,4"/>
+<text text-anchor="middle" x="363.5" y="-7.95" font-family="Helvetica,Arial,sans-serif" font-size="14.00">figure 1. Sample memory layout</text>
+<!-- element0 -->
+<g id="node1" class="node">
+<title>element0</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="160,-213.25 0,-213.25 0,-116.25 160,-116.25 160,-213.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-189 0,-213.25 160,-213.25 160,-189 0,-189"/>
+<text text-anchor="start" x="5" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="8.75" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100000 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-164.75 0,-189 160,-189 160,-164.75 0,-164.75"/>
+<text text-anchor="start" x="5" y="-172.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: null </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-140.5 0,-164.75 160,-164.75 160,-140.5 0,-140.5"/>
+<text text-anchor="start" x="5" y="-148.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100020 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-116.25 0,-140.5 160,-140.5 160,-116.25 0,-116.25"/>
+<text text-anchor="start" x="5" y="-124.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: 0x100040 </text>
+</g>
+<!-- element1 -->
+<g id="node2" class="node">
+<title>element1</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="356,-237.25 196,-237.25 196,-140.25 356,-140.25 356,-237.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-213 196,-237.25 356,-237.25 356,-213 196,-213"/>
+<text text-anchor="start" x="201" y="-221.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="204.75" y="-221.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100040 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-188.75 196,-213 356,-213 356,-188.75 196,-188.75"/>
+<text text-anchor="start" x="201" y="-196.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: 0x100000 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-164.5 196,-188.75 356,-188.75 356,-164.5 196,-164.5"/>
+<text text-anchor="start" x="201" y="-172.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100060 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-140.25 196,-164.5 356,-164.5 356,-140.25 196,-140.25"/>
+<text text-anchor="start" x="201" y="-148.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: 0x10080 </text>
+</g>
+<!-- element0&#45;&gt;element1 -->
+<g id="edge1" class="edge">
+<title>element0:next&#45;&gt;element1:head</title>
+<path fill="none" stroke="black" d="M160,-128.75C200.94,-128.75 160.59,-206.24 185.02,-221.98"/>
+<polygon fill="black" stroke="black" points="183.98,-225.33 194.53,-224.38 185.69,-218.54 183.98,-225.33"/>
+</g>
+<!-- user0 -->
+<g id="node4" class="node">
+<title>user0</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="335,-122.25 217,-122.25 217,-25.25 335,-25.25 335,-122.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-98 217,-122.25 335,-122.25 335,-98 217,-98"/>
+<text text-anchor="start" x="222" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="225.75" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100020 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-73.75 217,-98 335,-98 335,-73.75 217,-73.75"/>
+<text text-anchor="start" x="222" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-49.5 217,-73.75 335,-73.75 335,-49.5 217,-49.5"/>
+<text text-anchor="start" x="222" y="-57.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: root </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-25.25 217,-49.5 335,-49.5 335,-25.25 217,-25.25"/>
+<text text-anchor="start" x="222" y="-33.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">password: ???? </text>
+</g>
+<!-- element0&#45;&gt;user0 -->
+<g id="edge5" class="edge">
+<title>element0:user&#45;&gt;user0:head</title>
+<path fill="none" stroke="black" d="M160,-152.75C186.97,-152.75 185.77,-120.99 204.81,-112.06"/>
+<polygon fill="black" stroke="black" points="205.43,-115.51 214.52,-110.06 204.02,-108.65 205.43,-115.51"/>
+</g>
+<!-- element1&#45;&gt;element0 -->
+<g id="edge2" class="edge">
+<title>element1:prev&#45;&gt;element0:head</title>
+<path fill="none" stroke="black" d="M196,-200.75C184.62,-200.75 179.32,-200.75 171.45,-200.75"/>
+<polygon fill="black" stroke="black" points="171.51,-197.25 161.51,-200.75 171.51,-204.25 171.51,-197.25"/>
+</g>
+<!-- element2 -->
+<g id="node3" class="node">
+<title>element2</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="552,-261.25 392,-261.25 392,-164.25 552,-164.25 552,-261.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-237 392,-261.25 552,-261.25 552,-237 392,-237"/>
+<text text-anchor="start" x="397" y="-245.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="400.75" y="-245.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100080 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-212.75 392,-237 552,-237 552,-212.75 392,-212.75"/>
+<text text-anchor="start" x="397" y="-220.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: 0x100040 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-188.5 392,-212.75 552,-212.75 552,-188.5 392,-188.5"/>
+<text text-anchor="start" x="397" y="-196.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x1000a0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-164.25 392,-188.5 552,-188.5 552,-164.25 392,-164.25"/>
+<text text-anchor="start" x="397" y="-172.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: null </text>
+</g>
+<!-- element1&#45;&gt;element2 -->
+<g id="edge3" class="edge">
+<title>element1:next&#45;&gt;element2:head</title>
+<path fill="none" stroke="black" d="M356,-152.75C396.94,-152.75 356.59,-230.24 381.02,-245.98"/>
+<polygon fill="black" stroke="black" points="379.98,-249.33 390.53,-248.38 381.69,-242.54 379.98,-249.33"/>
+</g>
+<!-- user1 -->
+<g id="node5" class="node">
+<title>user1</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="544.5,-146.25 399.5,-146.25 399.5,-49.25 544.5,-49.25 544.5,-146.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-122 399.5,-146.25 544.5,-146.25 544.5,-122 399.5,-122"/>
+<text text-anchor="start" x="418" y="-130.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="421.75" y="-130.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100060 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-97.75 399.5,-122 544.5,-122 544.5,-97.75 399.5,-97.75"/>
+<text text-anchor="start" x="404.5" y="-105.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 1 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-73.5 399.5,-97.75 544.5,-97.75 544.5,-73.5 399.5,-73.5"/>
+<text text-anchor="start" x="404.5" y="-81.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: bob </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-49.25 399.5,-73.5 544.5,-73.5 544.5,-49.25 399.5,-49.25"/>
+<text text-anchor="start" x="404.5" y="-57.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> password: password1 </text>
+</g>
+<!-- element1&#45;&gt;user1 -->
+<g id="edge6" class="edge">
+<title>element1:user&#45;&gt;user1:head</title>
+<path fill="none" stroke="black" d="M356,-176.75C378.12,-176.75 374.09,-147.26 387.22,-137.12"/>
+<polygon fill="black" stroke="black" points="388.06,-140.53 396.56,-134.2 385.97,-133.85 388.06,-140.53"/>
+</g>
+<!-- element2&#45;&gt;element1 -->
+<g id="edge4" class="edge">
+<title>element2:prev&#45;&gt;element1:head</title>
+<path fill="none" stroke="black" d="M392,-224.75C380.62,-224.75 375.32,-224.75 367.45,-224.75"/>
+<polygon fill="black" stroke="black" points="367.51,-221.25 357.51,-224.75 367.51,-228.25 367.51,-221.25"/>
+</g>
+<!-- user2 -->
+<g id="node6" class="node">
+<title>user2</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="727,-213.25 588,-213.25 588,-116.25 727,-116.25 727,-213.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-189 588,-213.25 727,-213.25 727,-189 588,-189"/>
+<text text-anchor="start" x="603.5" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="607.25" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x1000a0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-164.75 588,-189 727,-189 727,-164.75 588,-164.75"/>
+<text text-anchor="start" x="593" y="-172.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 2 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-140.5 588,-164.75 727,-164.75 727,-140.5 588,-140.5"/>
+<text text-anchor="start" x="593" y="-148.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: alice </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-116.25 588,-140.5 727,-140.5 727,-116.25 588,-116.25"/>
+<text text-anchor="start" x="593" y="-124.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> password: pasword2 </text>
+</g>
+<!-- element2&#45;&gt;user2 -->
+<g id="edge7" class="edge">
+<title>element2:user&#45;&gt;user2:head</title>
+<path fill="none" stroke="black" d="M552,-200.75C563.38,-200.75 568.68,-200.75 576.55,-200.75"/>
+<polygon fill="black" stroke="black" points="576.49,-204.25 586.49,-200.75 576.49,-197.25 576.49,-204.25"/>
+</g>
+</g>
+</svg></div>
+
+<p>New entries created during signup:</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">sign_up</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user_t</span><span class="o">*</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">user_t</span><span class="p">));</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">user_entry_t</span><span class="p">));</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user_entry</span>
+<span class="w">    </span><span class="n">user</span><span class="o">-&gt;</span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UID</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;username: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="o">-&gt;</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;password: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="o">-&gt;</span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w">                                  </span><span class="err">#</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span>
+
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">user_list</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="p">;</span><span class="w">                                  </span><span class="err">#</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="err">&#39;</span><span class="n">prev</span><span class="err">&#39;</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w">  </span>
+<span class="w">    </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>sign_up</code> function sets values for <code>user</code> and <code>prev</code> fields, but it doesn't initialize value of <code>next</code> field. According to language specification,
+value of the uninitialized variable is undeterminate. In practice, it will be the value that was in the RAM before allocation.
+This value will be interpreted as address of the next entry in the list.</p>
+<p>List traversal of the <code>sign_in</code> function will go to this "undeterminate" address and interpret that memory as <code>user_entry</code> structure.</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="nf">sign_in</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">username</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">password</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;username: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;password: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">user_entry_t</span><span class="o">*</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">user_list</span><span class="p">;</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                        </span><span class="cp"># read username and password from curr entry </span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">memcmp</span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Logging in as %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">uid</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">entry</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">curr</span><span class="p">);</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">uninitialized</span><span class="w"> </span><span class="n">memory</span><span class="o">:</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">iteration</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>So it <code>sing_in</code> will iterate over <code>next</code> values until it reaches null and treat memory at this <code>next</code> address as holder for
+username and password.</p>
+<p>When we delete user, memory would look like:</p>
+<ul>
+<li>2 user_entries with addresses 0x100000, 0x100040</li>
+<li>2 user accounts with addresses 0x100020, 0x100060 (root, bob)</li>
+<li>two recycled memory blocks that will be aviailable for view allocations: 0x100080, 0x1000a0</li>
+</ul>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 9.0.0 (20230911.1827)
+ -->
+<!-- Title: g Pages: 1 -->
+<div><svg width="545pt" height="220pt"
+ viewBox="0.00 0.00 545.00 220.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 216)">
+<title>g</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-216 541,-216 541,4 -4,4"/>
+<!-- element0 -->
+<g id="node1" class="node">
+<title>element0</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="160,-188 0,-188 0,-91 160,-91 160,-188"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-163.75 0,-188 160,-188 160,-163.75 0,-163.75"/>
+<text text-anchor="start" x="5" y="-172.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="8.75" y="-172.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100000 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-139.5 0,-163.75 160,-163.75 160,-139.5 0,-139.5"/>
+<text text-anchor="start" x="5" y="-147.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: null </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-115.25 0,-139.5 160,-139.5 160,-115.25 0,-115.25"/>
+<text text-anchor="start" x="5" y="-123.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100020 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-91 0,-115.25 160,-115.25 160,-91 0,-91"/>
+<text text-anchor="start" x="5" y="-98.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: 0x100040 </text>
+</g>
+<!-- element1 -->
+<g id="node2" class="node">
+<title>element1</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="356,-212 196,-212 196,-115 356,-115 356,-212"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-187.75 196,-212 356,-212 356,-187.75 196,-187.75"/>
+<text text-anchor="start" x="201" y="-196.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="204.75" y="-196.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100040 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-163.5 196,-187.75 356,-187.75 356,-163.5 196,-163.5"/>
+<text text-anchor="start" x="201" y="-171.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: 0x100000 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-139.25 196,-163.5 356,-163.5 356,-139.25 196,-139.25"/>
+<text text-anchor="start" x="201" y="-147.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100060 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-115 196,-139.25 356,-139.25 356,-115 196,-115"/>
+<text text-anchor="start" x="201" y="-122.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> null </text>
+</g>
+<!-- element0&#45;&gt;element1 -->
+<g id="edge1" class="edge">
+<title>element0:next&#45;&gt;element1:head</title>
+<path fill="none" stroke="black" d="M160,-103.5C200.94,-103.5 160.59,-180.99 185.02,-196.73"/>
+<polygon fill="black" stroke="black" points="183.98,-200.08 194.53,-199.13 185.69,-193.29 183.98,-200.08"/>
+</g>
+<!-- user0 -->
+<g id="node3" class="node">
+<title>user0</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="335,-97 217,-97 217,0 335,0 335,-97"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-72.75 217,-97 335,-97 335,-72.75 217,-72.75"/>
+<text text-anchor="start" x="222" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="225.75" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100020 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-48.5 217,-72.75 335,-72.75 335,-48.5 217,-48.5"/>
+<text text-anchor="start" x="222" y="-56.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-24.25 217,-48.5 335,-48.5 335,-24.25 217,-24.25"/>
+<text text-anchor="start" x="222" y="-32.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: root </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,0 217,-24.25 335,-24.25 335,0 217,0"/>
+<text text-anchor="start" x="222" y="-7.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">password: ???? </text>
+</g>
+<!-- element0&#45;&gt;user0 -->
+<g id="edge3" class="edge">
+<title>element0:user&#45;&gt;user0:head</title>
+<path fill="none" stroke="black" d="M160,-127.5C186.97,-127.5 185.77,-95.74 204.81,-86.81"/>
+<polygon fill="black" stroke="black" points="205.43,-90.26 214.52,-84.81 204.02,-83.4 205.43,-90.26"/>
+</g>
+<!-- element1&#45;&gt;element0 -->
+<g id="edge2" class="edge">
+<title>element1:prev&#45;&gt;element0:head</title>
+<path fill="none" stroke="black" d="M196,-175.5C184.62,-175.5 179.32,-175.5 171.45,-175.5"/>
+<polygon fill="black" stroke="black" points="171.51,-172 161.51,-175.5 171.51,-179 171.51,-172"/>
+</g>
+<!-- user1 -->
+<g id="node4" class="node">
+<title>user1</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="537,-164 392,-164 392,-67 537,-67 537,-164"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-139.75 392,-164 537,-164 537,-139.75 392,-139.75"/>
+<text text-anchor="start" x="410.5" y="-148.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="414.25" y="-148.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100060 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-115.5 392,-139.75 537,-139.75 537,-115.5 392,-115.5"/>
+<text text-anchor="start" x="397" y="-123.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 1 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-91.25 392,-115.5 537,-115.5 537,-91.25 392,-91.25"/>
+<text text-anchor="start" x="397" y="-99.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: bob </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-67 392,-91.25 537,-91.25 537,-67 392,-67"/>
+<text text-anchor="start" x="397" y="-74.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> password: password1 </text>
+</g>
+<!-- element1&#45;&gt;user1 -->
+<g id="edge4" class="edge">
+<title>element1:user&#45;&gt;user1:head</title>
+<path fill="none" stroke="black" d="M356,-151.5C367.38,-151.5 372.68,-151.5 380.55,-151.5"/>
+<polygon fill="black" stroke="black" points="380.49,-155 390.49,-151.5 380.49,-148 380.49,-155"/>
+</g>
+</g>
+</svg></div>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 9.0.0 (20230911.1827)
+ -->
+<!-- Title: g Pages: 1 -->
+<div><svg width="428pt" height="130pt"
+ viewBox="0.00 0.00 428.25 130.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 126.25)">
+<title>g</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-126.25 424.25,-126.25 424.25,4 -4,4"/>
+<text text-anchor="middle" x="210.12" y="-7.95" font-family="Helvetica,Arial,sans-serif" font-size="14.00">figure 2. Memory layout after user deletion</text>
+<!-- element2 -->
+<g id="node1" class="node">
+<title>element2</title>
+<polygon fill="#880000" fill-opacity="0.133333" stroke="none" points="199,-122.25 0,-122.25 0,-25.25 199,-25.25 199,-122.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-98 0,-122.25 199,-122.25 199,-98 0,-98"/>
+<text text-anchor="start" x="5" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="8.75" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">recycled memory 0x100080</text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-73.75 0,-98 199,-98 199,-73.75 0,-73.75"/>
+<text text-anchor="start" x="5" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 0x100040 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-49.5 0,-73.75 199,-73.75 199,-49.5 0,-49.5"/>
+<text text-anchor="start" x="5" y="-57.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 0x1000a0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-25.25 0,-49.5 199,-49.5 199,-25.25 0,-25.25"/>
+<text text-anchor="start" x="5" y="-33.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 0 </text>
+</g>
+<!-- user2 -->
+<g id="node2" class="node">
+<title>user2</title>
+<polygon fill="#880000" fill-opacity="0.133333" stroke="none" points="420.25,-122.25 216.75,-122.25 216.75,-25.25 420.25,-25.25 420.25,-122.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="216.75,-98 216.75,-122.25 420.25,-122.25 420.25,-98 216.75,-98"/>
+<text text-anchor="start" x="221.75" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="225.5" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">recycled memory 0x1000a0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="216.75,-73.75 216.75,-98 420.25,-98 420.25,-73.75 216.75,-73.75"/>
+<text text-anchor="start" x="221.75" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 2 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="216.75,-49.5 216.75,-73.75 420.25,-73.75 420.25,-49.5 216.75,-49.5"/>
+<text text-anchor="start" x="221.75" y="-57.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> alice </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="216.75,-25.25 216.75,-49.5 420.25,-49.5 420.25,-25.25 216.75,-25.25"/>
+<text text-anchor="start" x="221.75" y="-33.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> pasword2 </text>
+</g>
+</g>
+</svg></div>
+
+<p>Now if we create a new user, recycled memory 0x100080 and 0x1000a0 will be reused for user account and user entry. Note that last
+freed in <code>remove_account</code> item will be reused first by malloc in sign_up (effectively swaping addresses of user_entry and user account).
+This change is highlighted compared to <em>figure 1</em>:</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 9.0.0 (20230911.1827)
+ -->
+<!-- Title: g Pages: 1 -->
+<div><svg width="735pt" height="269pt"
+ viewBox="0.00 0.00 735.00 269.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 265.25)">
+<title>g</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-265.25 731,-265.25 731,4 -4,4"/>
+<text text-anchor="middle" x="363.5" y="-7.95" font-family="Helvetica,Arial,sans-serif" font-size="14.00">figure 3. Memory layout after new user re&#45;creation</text>
+<!-- element0 -->
+<g id="node1" class="node">
+<title>element0</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="160,-213.25 0,-213.25 0,-116.25 160,-116.25 160,-213.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-189 0,-213.25 160,-213.25 160,-189 0,-189"/>
+<text text-anchor="start" x="5" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="8.75" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100000 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-164.75 0,-189 160,-189 160,-164.75 0,-164.75"/>
+<text text-anchor="start" x="5" y="-172.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: null </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-140.5 0,-164.75 160,-164.75 160,-140.5 0,-140.5"/>
+<text text-anchor="start" x="5" y="-148.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100020 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="0,-116.25 0,-140.5 160,-140.5 160,-116.25 0,-116.25"/>
+<text text-anchor="start" x="5" y="-124.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: 0x100040 </text>
+</g>
+<!-- element1 -->
+<g id="node2" class="node">
+<title>element1</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="356,-237.25 196,-237.25 196,-140.25 356,-140.25 356,-237.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-213 196,-237.25 356,-237.25 356,-213 196,-213"/>
+<text text-anchor="start" x="201" y="-221.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="204.75" y="-221.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x100040 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-188.75 196,-213 356,-213 356,-188.75 196,-188.75"/>
+<text text-anchor="start" x="201" y="-196.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: 0x100000 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-164.5 196,-188.75 356,-188.75 356,-164.5 196,-164.5"/>
+<text text-anchor="start" x="201" y="-172.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100060 </text>
+<polygon fill="#b2b3b4" fill-opacity="0.666667" stroke="none" points="196,-140.25 196,-164.5 356,-164.5 356,-140.25 196,-140.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="196,-140.25 196,-164.5 356,-164.5 356,-140.25 196,-140.25"/>
+<text text-anchor="start" x="201" y="-148.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: 0x1000a0 </text>
+</g>
+<!-- element0&#45;&gt;element1 -->
+<g id="edge1" class="edge">
+<title>element0:next&#45;&gt;element1:head</title>
+<path fill="none" stroke="black" d="M160,-128.75C200.94,-128.75 160.59,-206.24 185.02,-221.98"/>
+<polygon fill="black" stroke="black" points="183.98,-225.33 194.53,-224.38 185.69,-218.54 183.98,-225.33"/>
+</g>
+<!-- user0 -->
+<g id="node4" class="node">
+<title>user0</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="335,-122.25 217,-122.25 217,-25.25 335,-25.25 335,-122.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-98 217,-122.25 335,-122.25 335,-98 217,-98"/>
+<text text-anchor="start" x="222" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="225.75" y="-106.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100020 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-73.75 217,-98 335,-98 335,-73.75 217,-73.75"/>
+<text text-anchor="start" x="222" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-49.5 217,-73.75 335,-73.75 335,-49.5 217,-49.5"/>
+<text text-anchor="start" x="222" y="-57.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: root </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="217,-25.25 217,-49.5 335,-49.5 335,-25.25 217,-25.25"/>
+<text text-anchor="start" x="222" y="-33.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">password: ???? </text>
+</g>
+<!-- element0&#45;&gt;user0 -->
+<g id="edge5" class="edge">
+<title>element0:user&#45;&gt;user0:head</title>
+<path fill="none" stroke="black" d="M160,-152.75C186.97,-152.75 185.77,-120.99 204.81,-112.06"/>
+<polygon fill="black" stroke="black" points="205.43,-115.51 214.52,-110.06 204.02,-108.65 205.43,-115.51"/>
+</g>
+<!-- element1&#45;&gt;element0 -->
+<g id="edge2" class="edge">
+<title>element1:prev&#45;&gt;element0:head</title>
+<path fill="none" stroke="black" d="M196,-200.75C184.62,-200.75 179.32,-200.75 171.45,-200.75"/>
+<polygon fill="black" stroke="black" points="171.51,-197.25 161.51,-200.75 171.51,-204.25 171.51,-197.25"/>
+</g>
+<!-- element2 -->
+<g id="node3" class="node">
+<title>element2</title>
+<polygon fill="#88ff00" fill-opacity="0.133333" stroke="none" points="552,-261.25 392,-261.25 392,-164.25 552,-164.25 552,-261.25"/>
+<polygon fill="#b2b3b4" fill-opacity="0.666667" stroke="none" points="392,-237 392,-261.25 552,-261.25 552,-237 392,-237"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-237 392,-261.25 552,-261.25 552,-237 392,-237"/>
+<text text-anchor="start" x="397" y="-245.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="400.75" y="-245.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user_entry 0x1000a0 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-212.75 392,-237 552,-237 552,-212.75 392,-212.75"/>
+<text text-anchor="start" x="397" y="-220.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> prev: 0x100040 </text>
+<polygon fill="#b2b3b4" fill-opacity="0.666667" stroke="none" points="392,-188.5 392,-212.75 552,-212.75 552,-188.5 392,-188.5"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-188.5 392,-212.75 552,-212.75 552,-188.5 392,-188.5"/>
+<text text-anchor="start" x="397" y="-196.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> user: 0x100080 </text>
+<polygon fill="#efdddd" stroke="none" points="392,-164.25 392,-188.5 552,-188.5 552,-164.25 392,-164.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="392,-164.25 392,-188.5 552,-188.5 552,-164.25 392,-164.25"/>
+<text text-anchor="start" x="397" y="-172.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> next: password2 </text>
+</g>
+<!-- element1&#45;&gt;element2 -->
+<g id="edge3" class="edge">
+<title>element1:next&#45;&gt;element2:head</title>
+<path fill="none" stroke="black" d="M356,-152.75C396.94,-152.75 356.59,-230.24 381.02,-245.98"/>
+<polygon fill="black" stroke="black" points="379.98,-249.33 390.53,-248.38 381.69,-242.54 379.98,-249.33"/>
+</g>
+<!-- user1 -->
+<g id="node5" class="node">
+<title>user1</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="544.5,-146.25 399.5,-146.25 399.5,-49.25 544.5,-49.25 544.5,-146.25"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-122 399.5,-146.25 544.5,-146.25 544.5,-122 399.5,-122"/>
+<text text-anchor="start" x="418" y="-130.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="421.75" y="-130.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100060 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-97.75 399.5,-122 544.5,-122 544.5,-97.75 399.5,-97.75"/>
+<text text-anchor="start" x="404.5" y="-105.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 1 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-73.5 399.5,-97.75 544.5,-97.75 544.5,-73.5 399.5,-73.5"/>
+<text text-anchor="start" x="404.5" y="-81.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: bob </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="399.5,-49.25 399.5,-73.5 544.5,-73.5 544.5,-49.25 399.5,-49.25"/>
+<text text-anchor="start" x="404.5" y="-57.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> password: password1 </text>
+</g>
+<!-- element1&#45;&gt;user1 -->
+<g id="edge6" class="edge">
+<title>element1:user&#45;&gt;user1:head</title>
+<path fill="none" stroke="black" d="M356,-176.75C378.12,-176.75 374.09,-147.26 387.22,-137.12"/>
+<polygon fill="black" stroke="black" points="388.06,-140.53 396.56,-134.2 385.97,-133.85 388.06,-140.53"/>
+</g>
+<!-- element2&#45;&gt;element1 -->
+<g id="edge4" class="edge">
+<title>element2:prev&#45;&gt;element1:head</title>
+<path fill="none" stroke="black" d="M392,-224.75C380.62,-224.75 375.32,-224.75 367.45,-224.75"/>
+<polygon fill="black" stroke="black" points="367.51,-221.25 357.51,-224.75 367.51,-228.25 367.51,-221.25"/>
+</g>
+<!-- user2 -->
+<g id="node6" class="node">
+<title>user2</title>
+<polygon fill="#0044ff" fill-opacity="0.133333" stroke="none" points="727,-213.25 588,-213.25 588,-116.25 727,-116.25 727,-213.25"/>
+<polygon fill="#b2b3b4" fill-opacity="0.666667" stroke="none" points="588,-189 588,-213.25 727,-213.25 727,-189 588,-189"/>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-189 588,-213.25 727,-213.25 727,-189 588,-189"/>
+<text text-anchor="start" x="603.5" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> </text>
+<text text-anchor="start" x="607.25" y="-197.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">user 0x100080 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-164.75 588,-189 727,-189 727,-164.75 588,-164.75"/>
+<text text-anchor="start" x="593" y="-172.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> id: 2 </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-140.5 588,-164.75 727,-164.75 727,-140.5 588,-140.5"/>
+<text text-anchor="start" x="593" y="-148.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> username: alice </text>
+<polygon fill="none" stroke="#000000" stroke-opacity="0.266667" points="588,-116.25 588,-140.5 727,-140.5 727,-116.25 588,-116.25"/>
+<text text-anchor="start" x="593" y="-124.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> password: pasword2 </text>
+</g>
+<!-- element2&#45;&gt;user2 -->
+<g id="edge7" class="edge">
+<title>element2:user&#45;&gt;user2:head</title>
+<path fill="none" stroke="black" d="M552,-200.75C563.38,-200.75 568.68,-200.75 576.55,-200.75"/>
+<polygon fill="black" stroke="black" points="576.49,-204.25 586.49,-200.75 576.49,-197.25 576.49,-204.25"/>
+</g>
+</g>
+</svg></div>
+
+<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<p>As you can see on figure3, password of deleted user is used as address of the next user entry. So our plan is:</p>
+<ol>
+<li>Find memory address that can be interpreted as user account with user account data structured with id 0 and username and password that we know.</li>
+<li>Create user account user1 using address from step 1 as a password.</li>
+<li>Delete the account.</li>
+<li>Create new account user2, this will trigger the exploit and create new entry with <code>next</code> set to address we selected in step 1.</li>
+<li>Sign in with username and password that we got in step 1.</li>
+</ol>
+<p><strong>Step 1</strong>: we are looking for memory address for data structure:
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">uid</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">username</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">password</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+We want uid to be 0, and username and password to be known. The best place to start in my opinion is binary code itself as
+its static and we can scan it.</p>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>

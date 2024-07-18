@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../dna/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -327,6 +329,89 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    sssshhhh
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    sssshhhh
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-struggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      My struggle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -401,7 +486,7 @@
   
 
 
-  <h1>sssshhhh writeup</h1>
+  <h1>sssshhhh</h1>
 
 <h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link">&para;</a></h2>
 <p>Difficulty: beginner</p>
@@ -412,9 +497,9 @@
 <p>Great news! We found the Kookaburras!... Bad news.. They're locked up. We've managed to get access to the central terminal and ripped a binary off of it for you to analyse. Maybe you can find a way to free our friends?</p>
 </div>
 <p>Input files:</p>
-<details class="info">
-<summary>encoding.txt</summary>
-</details>
+<ul>
+<li><a href="https://github.com/DownUnderCTF/Challenges_2024_Public/blob/f2797a33d8f5851508f37e854afceedf85eee8a3/beginner/sssshhhh/src/cmd/cmd">server binary</a></li>
+</ul>
 <p>NB:</p>
 <ul>
 <li>
@@ -431,6 +516,201 @@
 <li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<p>What do we do the first when we have an unknown binary? Lets run it:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>./server
+<span class="m">5</span>:29PM<span class="w"> </span>INFO<span class="w"> </span>Starting<span class="w"> </span>SSH<span class="w"> </span>Server<span class="w"> </span><span class="nv">host</span><span class="o">=</span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">1337</span>
+</code></pre></div></td></tr></table></div>
+<p>When we try to ssh to it we see that it requires a password. So lets open in <a href="https://ghidra-sre.org/">Ghidra</a> and see if we can find it.</p>
+<p><code>main</code> function has calls <code>startLogger()</code> and <code>RunSSH()</code>. Second one is interesting - it should initialise user accounts somehow. In code there are a lot of
+references to <a href="https://github.com/charmbracelet/ssh">https://github.com/charmbracelet/ssh</a> which is a go package for embeded ssh server. In the documentation and examples of the 
+library we can see how usually password authentication is configured <a href="https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth">https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth</a> so we know what 
+to look for. </p>
+<p>Two interesting lines in <code>RunSSH()</code> that caught my eye:</p>
+<p><div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">local_b0</span><span class="p">.</span><span class="n">_8_8_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PTR_main</span><span class="p">.</span><span class="n">RunSSH</span><span class="p">.</span><span class="n">func2_0069c798</span><span class="p">;</span>
+<span class="n">local_b0</span><span class="p">.</span><span class="n">_0_8_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">main</span><span class="p">.</span><span class="n">RunSSH</span><span class="p">.</span><span class="n">WithPasswordAuth</span><span class="p">.</span><span class="n">PasswordAuth</span><span class="p">.</span><span class="n">func10</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+From docs we know that PasswordAuth take a parameter - PasswordHandler. Address of the <code>func2</code> is taken right before PasswordAuth setup. Its worth
+to check the code of the func2:
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">undefined8</span><span class="w"> </span><span class="n">main</span><span class="p">.</span><span class="n">RunSSH</span><span class="p">.</span><span class="n">func2</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">param_1</span><span class="p">,</span><span class="n">undefined8</span><span class="w"> </span><span class="n">param_2</span><span class="p">,</span><span class="n">undefined8</span><span class="w"> </span><span class="n">param_3</span><span class="p">,</span><span class="n">undefined8</span><span class="w"> </span><span class="n">param_4</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">undefined8</span><span class="w"> </span><span class="n">uVar1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">unaff_R14</span><span class="p">;</span>
+<span class="w">  </span><span class="n">undefined8</span><span class="w"> </span><span class="n">param_9</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">param_9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">param_4</span><span class="p">;</span>
+<span class="hll"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">param_1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x23</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">    </span><span class="n">uVar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">memequal</span><span class="p">();</span>
+</span><span class="hll"><span class="w">  </span><span class="p">}</span>
+</span><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">uVar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">uVar1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+It compares some number (length?) to 0x23 and then calls <code>memequal</code>. Strangely, memequel doesn't take any params. Eventually I checked disassembly:
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">MOV</span><span class="w">        </span><span class="no">RAX</span><span class="p">,</span><span class="no">param_4</span>
+<span class="nf">LEA</span><span class="w">        </span><span class="no">RBX</span><span class="p">,[</span><span class="no">DAT_0067ec99</span><span class="p">]</span><span class="w"> </span>
+<span class="no">MOV</span><span class="w">        </span><span class="no">RCX</span><span class="p">,</span><span class="mi">0x23</span><span class="w">  </span>
+<span class="no">CALL</span><span class="w">       </span><span class="no">runtime.memequal</span>
+</code></pre></div></td></tr></table></div>
+First it moves param_4 to RAX (password?), then loads value from DAT_0067ec99 to RBX, 0x23 is likely length and calls memequal.</p>
+<p>We can see password in plain text at address DAT_0067ec99, now lets try to connect:
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>└─$<span class="w"> </span>ssh<span class="w"> </span>localhost<span class="w"> </span>-p<span class="w"> </span><span class="m">1337</span><span class="w">                        </span>
+<span class="w"> </span>____<span class="w">  </span>__.<span class="w">             </span>__<span class="w">          </span>___.<span class="w">                               </span>
+<span class="p">|</span><span class="w">    </span><span class="p">|</span>/<span class="w"> </span>_<span class="p">|</span>____<span class="w">   </span>____<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>_______<span class="w"> </span><span class="se">\_</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>__<span class="w"> </span>_____________________<span class="w">   </span>
+<span class="p">|</span><span class="w">      </span>&lt;<span class="w"> </span>/<span class="w">  </span>_<span class="w"> </span><span class="se">\ </span>/<span class="w">  </span>_<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span>/<span class="w"> </span>/<span class="se">\_</span>_<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w"> </span>__<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span><span class="w">  </span>__<span class="w"> </span><span class="se">\_</span><span class="w">  </span>__<span class="w"> </span><span class="se">\_</span>_<span class="w">  </span><span class="se">\ </span><span class="w"> </span>
+<span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w">  </span><span class="o">(</span><span class="w">  </span>&lt;_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span>&lt;_&gt;<span class="w"> </span><span class="o">)</span><span class="w">    </span>&lt;<span class="w">  </span>/<span class="w"> </span>__<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="se">\_\ \ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span>/<span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="se">\/</span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="se">\/</span>/<span class="w"> </span>__<span class="w"> </span><span class="se">\_</span>
+<span class="p">|</span>____<span class="p">|</span>__<span class="w"> </span><span class="se">\_</span>___/<span class="w"> </span><span class="se">\_</span>___/<span class="p">|</span>__<span class="p">|</span>_<span class="w"> </span><span class="se">\(</span>____<span class="w">  </span>/___<span class="w">  </span>/____/<span class="w"> </span><span class="p">|</span>__<span class="p">|</span><span class="w">   </span><span class="p">|</span>__<span class="p">|</span><span class="w">  </span><span class="o">(</span>____<span class="w">  </span>/
+<span class="w">        </span><span class="se">\/</span><span class="w">                 </span><span class="se">\/</span><span class="w">     </span><span class="se">\/</span><span class="w">    </span><span class="se">\/</span><span class="w">                         </span><span class="se">\/</span><span class="w"> </span>
+<span class="w">  </span>___<span class="w"> </span>___<span class="w">        </span>.__<span class="w">       </span>.___.__<span class="w">                                    </span>
+<span class="w"> </span>/<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="se">\ </span><span class="w"> </span>____<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">    </span>__<span class="p">|</span><span class="w"> </span>_/<span class="p">|</span>__<span class="p">|</span><span class="w"> </span>____<span class="w">    </span>____<span class="w">                      </span>
+/<span class="w">    </span>~<span class="w">    </span><span class="se">\/</span><span class="w">  </span>_<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span><span class="w">   </span>/<span class="w"> </span>__<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span>/<span class="w">    </span><span class="se">\ </span><span class="w"> </span>/<span class="w"> </span>___<span class="se">\ </span><span class="w">                    </span>
+<span class="se">\ </span><span class="w">   </span>Y<span class="w">    </span><span class="o">(</span><span class="w">  </span>&lt;_&gt;<span class="w"> </span><span class="o">)</span><span class="w">  </span><span class="p">|</span>__/<span class="w"> </span>/_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">  </span><span class="se">\/</span><span class="w"> </span>/_/<span class="w">  </span>&gt;<span class="w">                    </span>
+<span class="w"> </span><span class="se">\_</span>__<span class="p">|</span>_<span class="w">  </span>/<span class="w"> </span><span class="se">\_</span>___/<span class="p">|</span>____/<span class="se">\_</span>___<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="p">|</span>___<span class="p">|</span><span class="w">  </span>/<span class="se">\_</span>__<span class="w">  </span>/<span class="w">                     </span>
+<span class="w">       </span><span class="se">\/</span><span class="w">                   </span><span class="se">\/</span><span class="w">         </span><span class="se">\/</span>/_____/<span class="w">                      </span>
+_________<span class="w">        </span>.__<span class="w">  </span>.__<span class="w">                                             </span>
+<span class="se">\_</span><span class="w">   </span>___<span class="w"> </span><span class="se">\ </span><span class="w"> </span>____<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">   </span>______<span class="w">                                   </span>
+/<span class="w">    </span><span class="se">\ </span><span class="w"> </span><span class="se">\/</span>_/<span class="w"> </span>__<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span>/<span class="w">  </span>___/<span class="w">                                   </span>
+<span class="se">\ </span><span class="w">    </span><span class="se">\_</span>__<span class="se">\ </span><span class="w"> </span>___/<span class="p">|</span><span class="w">  </span><span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="p">|</span>__<span class="se">\_</span>__<span class="w"> </span><span class="se">\ </span><span class="w">                                   </span>
+<span class="w"> </span><span class="se">\_</span>_____<span class="w">  </span>/<span class="se">\_</span>__<span class="w">  </span>&gt;____/____/____<span class="w">  </span>&gt;<span class="w">                                   </span>
+<span class="w">        </span><span class="se">\/</span><span class="w">     </span><span class="se">\/</span><span class="w">               </span><span class="se">\/</span><span class="w">                                    </span>
+kali@localhost<span class="err">&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
+Welcome,<span class="w"> </span>kali!
+This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>Kookaburra<span class="w"> </span>holding<span class="w"> </span>cells.
+<span class="w">        </span>Contained:<span class="w"> </span><span class="m">11912</span><span class="w"> </span>Kookaburras
+<span class="w">        </span>-&gt;<span class="w"> </span>No<span class="w"> </span>valid<span class="w"> </span><span class="nb">command</span>
+elapsed<span class="w"> </span>time:<span class="w"> </span><span class="m">552</span>.727µs
+Connection<span class="w"> </span>to<span class="w"> </span>localhost<span class="w"> </span>closed.
+</code></pre></div></td></tr></table></div></p>
+<p>We can see line <code>-&gt; No valid command</code>. This looks like a hint of the next obstacle. Our work with Ghidra is not finished yet. There should be handler somewhere with
+commands list. We are looking for something that calculates elapsed time or prints kookaburras count. Eventually I restarted
+server with gdb and set a breakpoint to printf function found through stack trace that handler for the server is func_8_1.</p>
+<p>There we can see following check:
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((((</span><span class="n">pplVar6</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">DAT_0000000e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">plVar2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pplVar6</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">plVar2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x68546b636f6c6e55</span><span class="p">))</span>
+</span><span class="hll"><span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">plVar2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x6c654365</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="p">)((</span><span class="kt">long</span><span class="p">)</span><span class="n">plVar2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0xc</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x736c</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span class="w">    </span><span class="n">os</span><span class="p">.</span><span class="n">Getenv</span><span class="p">();</span>
+<span class="w">    </span><span class="n">local_28</span><span class="p">.</span><span class="n">_8_8_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PTR_DAT_006df670</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_28</span><span class="p">.</span><span class="n">_0_8_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">DAT_00625400</span><span class="p">;</span>
+<span class="w">    </span><span class="n">auVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtime</span><span class="p">.</span><span class="n">convTstring</span><span class="p">();</span>
+<span class="w">    </span><span class="n">local_18</span><span class="p">.</span><span class="n">_8_8_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">auVar9</span><span class="p">.</span><span class="n">_0_8_</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_18</span><span class="p">.</span><span class="n">_0_8_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">DAT_00625400</span><span class="p">;</span>
+<span class="w">    </span><span class="n">auVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmt</span><span class="p">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">auVar9</span><span class="p">.</span><span class="n">_8_8_</span><span class="p">,</span><span class="n">local_28</span><span class="p">);</span>
+<span class="w">    </span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">charmbracelet</span><span class="o">/</span><span class="n">wish</span><span class="p">.</span><span class="n">Printf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">auVar9</span><span class="p">.</span><span class="n">_8_8_</span><span class="p">,</span><span class="n">auVar9</span><span class="p">.</span><span class="n">_0_8_</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+This is very common compiler optimisation for comparing short strings with static text. Converting constants <code>0x68546b636f6c6e55 0x6c654365 0x736c</code> to ascii 
+and reversing order of each number (little endian) gives us the command. Lets try it:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>localhost<span class="w"> </span>-p<span class="w"> </span><span class="m">1337</span><span class="w">  </span>UnlockTheCells<span class="w">  </span>
+<span class="w"> </span>____<span class="w">  </span>__.<span class="w">             </span>__<span class="w">          </span>___.<span class="w">                               </span>
+<span class="p">|</span><span class="w">    </span><span class="p">|</span>/<span class="w"> </span>_<span class="p">|</span>____<span class="w">   </span>____<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>_______<span class="w"> </span><span class="se">\_</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>__<span class="w"> </span>_____________________<span class="w">   </span>
+<span class="p">|</span><span class="w">      </span>&lt;<span class="w"> </span>/<span class="w">  </span>_<span class="w"> </span><span class="se">\ </span>/<span class="w">  </span>_<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span>/<span class="w"> </span>/<span class="se">\_</span>_<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w"> </span>__<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span><span class="w">  </span>__<span class="w"> </span><span class="se">\_</span><span class="w">  </span>__<span class="w"> </span><span class="se">\_</span>_<span class="w">  </span><span class="se">\ </span><span class="w"> </span>
+<span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w">  </span><span class="o">(</span><span class="w">  </span>&lt;_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span>&lt;_&gt;<span class="w"> </span><span class="o">)</span><span class="w">    </span>&lt;<span class="w">  </span>/<span class="w"> </span>__<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="se">\_\ \ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span>/<span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="se">\/</span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="se">\/</span>/<span class="w"> </span>__<span class="w"> </span><span class="se">\_</span>
+<span class="p">|</span>____<span class="p">|</span>__<span class="w"> </span><span class="se">\_</span>___/<span class="w"> </span><span class="se">\_</span>___/<span class="p">|</span>__<span class="p">|</span>_<span class="w"> </span><span class="se">\(</span>____<span class="w">  </span>/___<span class="w">  </span>/____/<span class="w"> </span><span class="p">|</span>__<span class="p">|</span><span class="w">   </span><span class="p">|</span>__<span class="p">|</span><span class="w">  </span><span class="o">(</span>____<span class="w">  </span>/
+<span class="w">        </span><span class="se">\/</span><span class="w">                 </span><span class="se">\/</span><span class="w">     </span><span class="se">\/</span><span class="w">    </span><span class="se">\/</span><span class="w">                         </span><span class="se">\/</span><span class="w"> </span>
+<span class="w">  </span>___<span class="w"> </span>___<span class="w">        </span>.__<span class="w">       </span>.___.__<span class="w">                                    </span>
+<span class="w"> </span>/<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="se">\ </span><span class="w"> </span>____<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">    </span>__<span class="p">|</span><span class="w"> </span>_/<span class="p">|</span>__<span class="p">|</span><span class="w"> </span>____<span class="w">    </span>____<span class="w">                      </span>
+/<span class="w">    </span>~<span class="w">    </span><span class="se">\/</span><span class="w">  </span>_<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span><span class="w">   </span>/<span class="w"> </span>__<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span>/<span class="w">    </span><span class="se">\ </span><span class="w"> </span>/<span class="w"> </span>___<span class="se">\ </span><span class="w">                    </span>
+<span class="se">\ </span><span class="w">   </span>Y<span class="w">    </span><span class="o">(</span><span class="w">  </span>&lt;_&gt;<span class="w"> </span><span class="o">)</span><span class="w">  </span><span class="p">|</span>__/<span class="w"> </span>/_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">  </span><span class="se">\/</span><span class="w"> </span>/_/<span class="w">  </span>&gt;<span class="w">                    </span>
+<span class="w"> </span><span class="se">\_</span>__<span class="p">|</span>_<span class="w">  </span>/<span class="w"> </span><span class="se">\_</span>___/<span class="p">|</span>____/<span class="se">\_</span>___<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="p">|</span>___<span class="p">|</span><span class="w">  </span>/<span class="se">\_</span>__<span class="w">  </span>/<span class="w">                     </span>
+<span class="w">       </span><span class="se">\/</span><span class="w">                   </span><span class="se">\/</span><span class="w">         </span><span class="se">\/</span>/_____/<span class="w">                      </span>
+_________<span class="w">        </span>.__<span class="w">  </span>.__<span class="w">                                             </span>
+<span class="se">\_</span><span class="w">   </span>___<span class="w"> </span><span class="se">\ </span><span class="w"> </span>____<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">   </span>______<span class="w">                                   </span>
+/<span class="w">    </span><span class="se">\ </span><span class="w"> </span><span class="se">\/</span>_/<span class="w"> </span>__<span class="w"> </span><span class="se">\|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span>/<span class="w">  </span>___/<span class="w">                                   </span>
+<span class="se">\ </span><span class="w">    </span><span class="se">\_</span>__<span class="se">\ </span><span class="w"> </span>___/<span class="p">|</span><span class="w">  </span><span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="p">|</span>__<span class="se">\_</span>__<span class="w"> </span><span class="se">\ </span><span class="w">                                   </span>
+<span class="w"> </span><span class="se">\_</span>_____<span class="w">  </span>/<span class="se">\_</span>__<span class="w">  </span>&gt;____/____/____<span class="w">  </span>&gt;<span class="w">                                   </span>
+<span class="w">        </span><span class="se">\/</span><span class="w">     </span><span class="se">\/</span><span class="w">               </span><span class="se">\/</span><span class="w">                                    </span>
+kali@localhost<span class="err">&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
+Welcome<span class="w"> </span>Warden,<span class="w"> </span>running<span class="w"> </span><span class="nb">command</span>
+Welcome,<span class="w"> </span>kali!
+This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>Kookaburra<span class="w"> </span>holding<span class="w"> </span>cells.
+<span class="w">        </span>Contained:<span class="w"> </span><span class="m">11912</span><span class="w"> </span>Kookaburras
+<span class="w">        </span>-&gt;<span class="w"> </span>No<span class="w"> </span>valid<span class="w"> </span><span class="nb">command</span>
+elapsed<span class="w"> </span>time:<span class="w"> </span><span class="m">666</span>.382µs
+</code></pre></div></td></tr></table></div>
+<p>And it did nothing - I still see <code>no valid command</code>. Well actually now there is one more line <code>Welcome Warden, running command</code>, but then it says command is still invalid.
+In code inside the <code>if</code> block there is <code>os.GetEnv()</code>, so likely this is where flag comes from. Restarting server with following command:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">WARDEN</span><span class="o">=</span>myflag<span class="w"> </span>./server<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p>Connecting to server now gave the flag. </p>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
@@ -463,6 +743,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../dna/" class="md-footer__link md-footer__link--prev" aria-label="Previous: DNAdecay">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                DNAdecay
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
