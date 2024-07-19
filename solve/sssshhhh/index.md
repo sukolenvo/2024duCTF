@@ -45,9 +45,9 @@ $ ./server
 
 When we try to ssh to it we see that it requires a password. So lets open in [Ghidra](https://ghidra-sre.org/) and see if we can find it.
 
-`main` function has calls `startLogger()` and `RunSSH()`. Second one is interesting - it should initialise user accounts somehow. In code there are a lot of
+`main` function has calls `startLogger()` and `RunSSH()`. Second call is interesting - it should initialise user accounts somehow. In code there are a lot of
 references to https://github.com/charmbracelet/ssh which is a go package for embeded ssh server. In the documentation and examples of the 
-library we can see how usually password authentication is configured https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth so we know what 
+library we can see how usually password authentication is configured https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth, so we know what 
 to look for. 
 
 Two interesting lines in `RunSSH()` that caught my eye:
@@ -75,7 +75,7 @@ undefined8 main.RunSSH.func2(long param_1,undefined8 param_2,undefined8 param_3,
   return uVar1;
 }
 ```
-It compares some number (length?) to 0x23 and then calls `memequal`. Strangely, memequel doesn't take any params. Eventually I checked disassembly:
+It compares some number (length?) to 0x23 and then calls `memequal`. Strangely, `memequel` doesn't take any params. Eventually I checked disassembly for this line:
 ```asm
 MOV        RAX,param_4
 LEA        RBX,[DAT_0067ec99] 

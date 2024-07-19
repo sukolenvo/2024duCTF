@@ -16,7 +16,7 @@ nav:
   - Decrypt then eval: ./decrypt_eval/index.md
   - Yawa: ./yawa/index.md
   - DNAdecay: ./dna/index.md
-#  - Sign in: ./sign_in/index.md
+  - Sign in: ./sign_in/index.md
   - sssshhhh: ./sssshhhh/index.md
 #  - Rusty vault: ./rusty/index.md
 #  - Jmp flag: ./jmp_flag/index.md
