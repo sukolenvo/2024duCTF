@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../dna/">
+        <link rel="prev" href="../sign_in/">
       
       
       
@@ -333,6 +333,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../sign_in/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sign in
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -522,9 +542,9 @@
 <span class="m">5</span>:29PM<span class="w"> </span>INFO<span class="w"> </span>Starting<span class="w"> </span>SSH<span class="w"> </span>Server<span class="w"> </span><span class="nv">host</span><span class="o">=</span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">1337</span>
 </code></pre></div></td></tr></table></div>
 <p>When we try to ssh to it we see that it requires a password. So lets open in <a href="https://ghidra-sre.org/">Ghidra</a> and see if we can find it.</p>
-<p><code>main</code> function has calls <code>startLogger()</code> and <code>RunSSH()</code>. Second one is interesting - it should initialise user accounts somehow. In code there are a lot of
+<p><code>main</code> function has calls <code>startLogger()</code> and <code>RunSSH()</code>. Second call is interesting - it should initialise user accounts somehow. In code there are a lot of
 references to <a href="https://github.com/charmbracelet/ssh">https://github.com/charmbracelet/ssh</a> which is a go package for embeded ssh server. In the documentation and examples of the 
-library we can see how usually password authentication is configured <a href="https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth">https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth</a> so we know what 
+library we can see how usually password authentication is configured <a href="https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth">https://pkg.go.dev/github.com/gliderlabs/ssh#PasswordAuth</a>, so we know what 
 to look for. </p>
 <p>Two interesting lines in <code>RunSSH()</code> that caught my eye:</p>
 <p><div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -563,7 +583,7 @@ to check the code of the func2:
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">uVar1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-It compares some number (length?) to 0x23 and then calls <code>memequal</code>. Strangely, memequel doesn't take any params. Eventually I checked disassembly:
+It compares some number (length?) to 0x23 and then calls <code>memequal</code>. Strangely, <code>memequel</code> doesn't take any params. Eventually I checked disassembly for this line:
 <div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -748,7 +768,7 @@ In code inside the <code>if</code> block there is <code>os.GetEnv()</code>, so l
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../dna/" class="md-footer__link md-footer__link--prev" aria-label="Previous: DNAdecay">
+          <a href="../sign_in/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sign in">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -758,7 +778,7 @@ In code inside the <code>if</code> block there is <code>os.GetEnv()</code>, so l
                 Previous
               </span>
               <div class="md-ellipsis">
-                DNAdecay
+                Sign in
               </div>
             </div>
           </a>
