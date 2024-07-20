@@ -18,6 +18,6 @@ nav:
   - DNAdecay: ./dna/index.md
   - Sign in: ./sign_in/index.md
   - sssshhhh: ./sssshhhh/index.md
-#  - Rusty vault: ./rusty/index.md
+  - Rusty vault: ./rusty/index.md
 #  - Jmp flag: ./jmp_flag/index.md
 #  - Pac shell: ./pac_shell/index.md
