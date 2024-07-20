@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../sssshhhh/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -367,6 +369,146 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Rusty vault
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Rusty vault
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-struggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      My struggle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-mutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key mutation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -407,6 +549,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-mutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key mutation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -441,7 +640,7 @@
   
 
 
-  <h1>Rusty vault writeup</h1>
+  <h1>Rusty vault</h1>
 
 <h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link">&para;</a></h2>
 <p>Difficulty: easy</p>
@@ -452,9 +651,9 @@
 <p>I've learnt all the secure coding practices. I only use memory safe languages and military grade encryption. Surely, you can't break into my vault.</p>
 </div>
 <p>Input files:</p>
-<details class="info">
-<summary>encoding.txt</summary>
-</details>
+<ul>
+<li><a href="https://github.com/DownUnderCTF/Challenges_2024_Public/tree/f2797a33d8f5851508f37e854afceedf85eee8a3/rev/rusty-vault/publish">rusty_vault binary</a></li>
+</ul>
 <p>NB:</p>
 <ul>
 <li>
@@ -471,6 +670,477 @@
 <li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p>Running the binary doesn't give us much:
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>./rusty_vault
+Enter<span class="w"> </span>the<span class="w"> </span>password<span class="w"> </span>to<span class="w"> </span>unlock<span class="w"> </span>the<span class="w"> </span>vault:
+</code></pre></div></td></tr></table></div></p>
+<p>Its time to open <a href="https://ghidra-sre.org/">Ghidra</a>. The <code>main</code> function is a thin wrapper that initializes standard rust runtime and then
+calls <code>_ZN11rusty_vault4main17h33c04fad0008f474E</code> this is where the magic happens.</p>
+<p>The function has very typical structure for security challenge. It consists of 3 key parts:</p>
+<ol>
+<li>Initialization. Usually includes many constants for key, cypher setup;</li>
+<li>Key mutation. This section can be recognised by many complicated loops/jmps/branches or cipher;</li>
+<li>Verification. This section typically has string/byte array comparison and two branches: success and failure.</li>
+</ol>
+<p>Lets review each section:</p>
+<h4 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h4>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">_ZN11rusty_vault4main17h33c04fad0008f474E()</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">                        </span><span class="cp"># this are contastants to initialise cipher state</span>
+<span class="w">                        </span><span class="cp"># from the first look</span>
+<span class="w">                        </span><span class="cp"># it is at least 0xe x 4 byte integers which gives us 15x4 = 60 bytes</span>
+<span class="w">  </span><span class="o">*</span><span class="n">__s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x3256a6fa</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xcd3071c3</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xf161629</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x65e74f39</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xdb05fa2e</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1247eacc</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xed7ff4c8</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xadf63090</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xa750b1ab</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xd1b5cfa2</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x9ab32e3b</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mh">0xb</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x8ea036fe</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="p">(</span><span class="n">undefined8</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">__s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0xc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x6179cbe7049f1890</span><span class="p">;</span>
+<span class="w">  </span><span class="n">__s1</span><span class="p">[</span><span class="mh">0xe</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x385bd95c</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">aes</span><span class="o">::</span><span class="n">autodetect</span><span class="o">::</span><span class="n">aes_intrinsics</span><span class="o">::</span><span class="n">STORAGE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">AES</span><span class="w"> </span><span class="n">initialization</span>
+<span class="w">    </span><span class="n">aes</span><span class="o">::</span><span class="n">autodetect</span><span class="o">::</span><span class="n">aes_intrinsics</span><span class="o">::</span><span class="n">init_get</span><span class="o">::</span><span class="n">cpuid</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_9b8</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">aes</span><span class="o">::</span><span class="n">autodetect</span><span class="o">::</span><span class="n">aes_intrinsics</span><span class="o">::</span><span class="n">init_get</span><span class="o">::</span><span class="n">cpuid_count</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="o">~</span><span class="p">(</span><span class="n">uint</span><span class="p">)</span><span class="n">local_9b0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xc000000</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">core_arch</span><span class="o">::</span><span class="n">x86</span><span class="o">::</span><span class="n">xsave</span><span class="o">::</span><span class="n">_xgetbv</span><span class="p">();</span>
+<span class="w">      </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uint</span><span class="p">)</span><span class="n">local_9b0</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mh">0x19</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">uVar9</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="n">aes</span><span class="o">::</span><span class="n">autodetect</span><span class="o">::</span><span class="n">aes_intrinsics</span><span class="o">::</span><span class="n">STORAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">uVar9</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uVar9</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00108dc3</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">aes</span><span class="o">::</span><span class="n">autodetect</span><span class="o">::</span><span class="n">aes_intrinsics</span><span class="o">::</span><span class="n">STORAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">aes</span><span class="o">::</span><span class="n">autodetect</span><span class="o">::</span><span class="n">aes_intrinsics</span><span class="o">::</span><span class="n">STORAGE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\x01&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="nl">LAB_00108dc3</span><span class="p">:</span>
+<span class="w">                           </span><span class="cp"># method annotated by Ghidra  _&lt;aes::ni::Aes256Enc as crypto_common::KeyInit&gt;::new</span>
+<span class="w">    </span><span class="n">_</span><span class="o">&lt;&gt;::</span><span class="n">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="o">&amp;</span><span class="n">DAT_0014a074</span><span class="p">);</span><span class="w">                          </span>
+<span class="w">    </span><span class="n">aes</span><span class="o">::</span><span class="n">ni</span><span class="o">::</span><span class="n">aes256</span><span class="o">::</span><span class="n">inv_expanded_keys</span><span class="p">(</span><span class="n">local_508</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">local_5f8</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="mh">0xf0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="n">local_5f8</span><span class="p">,</span><span class="mh">0x1e0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00108e2e</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">aes</span><span class="o">::</span><span class="n">soft</span><span class="o">::</span><span class="n">fixslice</span><span class="o">::</span><span class="n">aes256_key_schedule</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="o">&amp;</span><span class="n">DAT_0014a074</span><span class="p">);</span><span class="w"> </span>
+<span class="nl">LAB_00108e2e</span><span class="p">:</span>
+<span class="w">  </span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_9b8</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="mh">0x3c0</span><span class="p">);</span>
+<span class="w">                    </span><span class="cp"># method annotated by Ghidra  _&lt;aes_gcm::AesGcm&lt;Aes,NonceSize,TagSize&gt; as core::convert::From&lt;Aes&gt;&gt;::from</span>
+<span class="w">  </span><span class="n">_</span><span class="o">&lt;&gt;::</span><span class="n">from</span><span class="p">(</span><span class="n">local_418</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_9b8</span><span class="p">);</span>
+<span class="w">  </span><span class="n">local_9b8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">local_9b0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">DAT_00000001</span><span class="p">;</span>
+<span class="w">  </span><span class="n">local_9a8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">local_d78</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PTR_s_Enter_the_password_to_unlock_the_0015a118</span><span class="p">;</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">password</span>
+<span class="w">  </span><span class="n">local_d70</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">local_d68</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="n">local_d60</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZEXT816</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">stdio</span><span class="o">::</span><span class="n">_print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">);</span>
+<span class="w">  </span><span class="n">local_d78</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">undefined</span><span class="w"> </span><span class="o">**</span><span class="p">)</span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">stdio</span><span class="o">::</span><span class="n">stdin</span><span class="p">();</span>
+<span class="w">  </span><span class="n">auVar12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">stdio</span><span class="o">::</span><span class="n">Stdin</span><span class="o">::</span><span class="n">read_line</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_9b8</span><span class="p">);</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">auVar12</span>
+</code></pre></div></td></tr></table></div>
+<p>So we can see a large array initialized. After that AES setup. Then program prompts the password and stores
+it in <code>auVar12</code>. Key initialization also gives away AES key size - 256 bits (based on calls <code>aes::soft::fixslice::aes256_key_schedule</code> and <code>aes::ni::aes256::inv_expanded_keys</code>).</p>
+<p>From this section important information we are looking for:</p>
+<ol>
+<li>What algorithm is used;</li>
+<li>How its initialized.</li>
+</ol>
+<p>Annotation <code>aes_gcm::AesGcm&lt;Aes,NonceSize,TagSize&gt;</code> tells us its AES 256 GCM, we can now find documentation and all important
+params and calls: <a href="https://docs.rs/aes-gcm/latest/aes_gcm/">https://docs.rs/aes-gcm/latest/aes_gcm/</a>.</p>
+<div class="language-rust highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">documentation sample</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">aes_gcm</span>::<span class="p">{</span>
+<span class="w">    </span><span class="n">aead</span>::<span class="p">{</span><span class="n">Aead</span><span class="p">,</span><span class="w"> </span><span class="n">AeadCore</span><span class="p">,</span><span class="w"> </span><span class="n">KeyInit</span><span class="p">,</span><span class="w"> </span><span class="n">OsRng</span><span class="p">},</span>
+<span class="w">    </span><span class="n">Aes256Gcm</span><span class="p">,</span><span class="w"> </span><span class="n">Nonce</span><span class="p">,</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="c1">// Or `Aes128Gcm`</span>
+<span class="p">};</span>
+
+<span class="c1">// The encryption key can be generated randomly:</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Aes256Gcm</span>::<span class="n">generate_key</span><span class="p">(</span><span class="n">OsRng</span><span class="p">);</span>
+
+<span class="c1">// Transformed from a byte array:</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span>: <span class="kp">&amp;</span><span class="p">[</span><span class="kt">u8</span><span class="p">;</span><span class="w"> </span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[</span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="mi">32</span><span class="p">];</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span>: <span class="kp">&amp;</span><span class="nc">Key</span><span class="o">&lt;</span><span class="n">Aes256Gcm</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="n">into</span><span class="p">();</span>
+
+<span class="c1">// Note that you can get byte array from slice using the `TryInto` trait:</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span>: <span class="kp">&amp;</span><span class="p">[</span><span class="kt">u8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[</span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="mi">32</span><span class="p">];</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span>: <span class="p">[</span><span class="kt">u8</span><span class="p">;</span><span class="w"> </span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="n">try_into</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+
+<span class="c1">// Alternatively, the key can be transformed directly from a byte slice</span>
+<span class="c1">// (panicks on length mismatch):</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Key</span>::<span class="o">&lt;</span><span class="n">Aes256Gcm</span><span class="o">&gt;</span>::<span class="n">from_slice</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+
+<span class="hll"><span class="kd">let</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Aes256Gcm</span>::<span class="n">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">key</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span><span class="w"> </span><span class="n">nonce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Aes256Gcm</span>::<span class="n">generate_nonce</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">OsRng</span><span class="p">);</span><span class="w"> </span><span class="c1">// 96-bits; unique per message</span>
+</span><span class="hll"><span class="kd">let</span><span class="w"> </span><span class="n">ciphertext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="n">encrypt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nonce</span><span class="p">,</span><span class="w"> </span><span class="s">b&quot;plaintext message&quot;</span><span class="p">.</span><span class="n">as_ref</span><span class="p">())</span><span class="o">?</span><span class="p">;</span>
+</span><span class="kd">let</span><span class="w"> </span><span class="n">plaintext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="n">decrypt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nonce</span><span class="p">,</span><span class="w"> </span><span class="n">ciphertext</span><span class="p">.</span><span class="n">as_ref</span><span class="p">())</span><span class="o">?</span><span class="p">;</span>
+<span class="fm">assert_eq!</span><span class="p">(</span><span class="o">&amp;</span><span class="n">plaintext</span><span class="p">,</span><span class="w"> </span><span class="s">b&quot;plaintext message&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Key points:</p>
+<ul>
+<li><code>Aes256::new(&amp;key)</code> takes address of key. In our program there is call <code>_&lt;&gt;::new(&amp;local_d78,&amp;DAT_0014a074);</code> So <code>DAT_0014a074</code> could be the key.</li>
+<li><code>cipher.encrypt()</code> takes nonce (according to docs 12 bytes) and plaintext.</li>
+</ul>
+<h4 id="key-mutation">Key mutation<a class="headerlink" href="#key-mutation" title="Permanent link">&para;</a></h4>
+<p>Now it time to what is happening to key and password.</p>
+<details class="info">
+<summary>_ZN11rusty_vault4main17h33c04fad0008f474E()</summary>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">auVar12</span><span class="p">.</span><span class="n">_0_8_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">__dest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">DAT_00000001</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">local_9a8</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">puVar5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_9b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">local_9a8</span><span class="p">;</span>
+<span class="w">      </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">bVar7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="p">[</span><span class="mi">-1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">uVar8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ulong</span><span class="p">)</span><span class="n">bVar7</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">bVar7</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">bVar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="p">[</span><span class="mi">-2</span><span class="p">];</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">bVar1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">-0x40</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">bVar2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="p">[</span><span class="mi">-3</span><span class="p">];</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">bVar2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">-0x40</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="n">puVar6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">-4</span><span class="p">;</span>
+<span class="w">              </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bVar2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x3f</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">byte</span><span class="p">)</span><span class="n">puVar5</span><span class="p">[</span><span class="mi">-4</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="n">puVar6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">-3</span><span class="p">;</span>
+<span class="w">              </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bVar2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xf</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bVar1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x3f</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">uVar9</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">puVar6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">-2</span><span class="p">;</span>
+<span class="w">            </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bVar1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x1f</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bVar7</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x3f</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">uVar9</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">          </span><span class="n">uVar8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ulong</span><span class="p">)</span><span class="n">uVar9</span><span class="p">;</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uVar9</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x110000</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">puVar6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">uVar9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uint</span><span class="p">)</span><span class="n">uVar8</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">uVar9</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">uVar9</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mh">0x20</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mh">0x7f</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">uVar9</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">uVar3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uint</span><span class="p">)(</span><span class="n">uVar8</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uVar3</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">0x20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">uVar8</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xffffff00</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">bVar7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">unicode</span><span class="o">::</span><span class="n">unicode_data</span><span class="o">::</span><span class="n">white_space</span><span class="o">::</span><span class="n">WHITESPACE_MAP</span><span class="p">[</span><span class="n">uVar8</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">];</span>
+<span class="nl">LAB_00108f32</span><span class="p">:</span>
+<span class="w">                </span><span class="n">bVar11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)(</span><span class="n">bVar7</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">              </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uVar3</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mh">0x16</span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00109025</span><span class="p">;</span>
+<span class="w">                </span><span class="n">bVar11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uVar9</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x1680</span><span class="p">;</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="nl">LAB_00108f35</span><span class="p">:</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bVar11</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00108f40</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uVar3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">bVar7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="n">core</span><span class="o">::</span><span class="n">unicode</span><span class="o">::</span><span class="n">unicode_data</span><span class="o">::</span><span class="n">white_space</span><span class="o">::</span><span class="n">WHITESPACE_MAP</span><span class="p">[</span><span class="n">uVar8</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">]</span>
+<span class="w">                        </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">                </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00108f32</span><span class="p">;</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uVar3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">bVar11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uVar9</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x3000</span><span class="p">;</span>
+<span class="w">                </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00108f35</span><span class="p">;</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="nl">LAB_00109025</span><span class="p">:</span>
+<span class="w">          </span><span class="n">__n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">puVar5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">local_9b0</span><span class="p">;</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">long</span><span class="p">)</span><span class="n">__n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="n">uVar10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="n">uVar10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">              </span><span class="n">__dest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">undefined</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">__rust_alloc</span><span class="p">(</span><span class="n">__n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__dest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">undefined</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0x0</span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_00109060</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">alloc</span><span class="o">::</span><span class="n">raw_vec</span><span class="o">::</span><span class="n">handle_error</span><span class="p">(</span><span class="n">uVar10</span><span class="p">,</span><span class="n">__n</span><span class="p">);</span>
+<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="n">LAB_0010922a</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="nl">LAB_00108f40</span><span class="p">:</span>
+<span class="w">        </span><span class="n">puVar5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puVar6</span><span class="p">;</span>
+<span class="hll"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">puVar6</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">local_9b0</span><span class="p">);</span>
+</span><span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">__n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">__dest</span><span class="p">,</span><span class="n">__src</span><span class="p">,</span><span class="n">__n</span><span class="p">);</span>
+<span class="w">    </span><span class="n">local_9b8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_9b0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__dest</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_9a8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">_</span><span class="o">&lt;&gt;::</span><span class="n">encrypt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d90</span><span class="p">,</span><span class="n">local_418</span><span class="p">,</span><span class="o">&amp;</span><span class="n">DAT_0014a068</span><span class="p">,</span><span class="n">__dest</span><span class="p">,</span><span class="n">__n</span><span class="p">);</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">AES</span><span class="w"> </span><span class="n">encrypt</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>It has a lot of going on. The only thing I can tell from initial look thought it there is <code>while</code> loop and a lot of branches 
+on each iteration. It would take a quite some time to get my head around what is going on here. Probably want to skip this 
+part for now to safe time in case its not really needed. After the crazy loop, AES <code>encrypt()</code> is called.</p>
+<p>Earlier we saw that encrypt is supposed to take 2 params: nonce and plain text to encrypt. Here we can see 5 params. I can guess
+that first one is <code>self</code> (aka this), and rest of params could be because we invoke some overloaded/internal method. I decided to
+run program with gdb debugger to set a breakpoint here and see what this params are.</p>
+<p>Instruction that I want to set breakpoint at is at address 0x001090be in Ghidra (we can't set breakpoint at address 0x001090be because
+binary has <abbr title="Position Independent Executable">PIE</abbr> enabled and therefore every launch loaded to different address). Function <code>_ZN11rusty_vault4main17h33c04fad0008f474E</code> starts at 0x00108cf0, so
+its <code>0x00108cf0 - 0x001090be = 974</code> bytes into the function. Therefore gdb command is <code>br *(_ZN11rusty_vault4main17h33c04fad0008f474E+974)</code>.</p>
+<p>Here I can see params of the call:
+4<sup>th</sup> is password that we entered (probably <code>plain_text</code>) and before that is pointer to nonce which we can read from memory:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/12bx<span class="w"> </span>0x55555559e068<span class="w">   </span><span class="c1"># read 12 bytes in hex (we know length from docs)</span>
+0x55555559e068:<span class="w"> </span>0xff<span class="w">    </span>0x06<span class="w">    </span>0x72<span class="w">    </span>0x45<span class="w">    </span>0xc6<span class="w">    </span>0xae<span class="w">    </span>0x7b<span class="w">    </span>0x9f
+0x55555559e070:<span class="w"> </span>0xc1<span class="w">    </span>0x36<span class="w">    </span>0xd4<span class="w">    </span>0x8e
+</code></pre></div></td></tr></table></div>
+<h4 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h4>
+<p>Last section of the program is to verify state (ie check that password was correct):</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">_ZN11rusty_vault4main17h33c04fad0008f474E()</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">local_d80</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x3c</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">iVar4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bcmp</span><span class="p">(</span><span class="n">__s1</span><span class="p">,</span><span class="n">local_d88</span><span class="p">,</span><span class="mh">0x3c</span><span class="p">),</span><span class="w"> </span><span class="n">iVar4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">check</span>
+<span class="w">      </span><span class="n">local_d78</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PTR_s_Congratulations</span><span class="p">,</span><span class="n">_you_have_opened_0015a150</span><span class="p">;</span><span class="w">                </span><span class="err">#</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">see</span>
+<span class="w">      </span><span class="n">local_d70</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="n">local_d68</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">      </span><span class="n">local_d60</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZEXT816</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">stdio</span><span class="o">::</span><span class="n">_print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">local_d78</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PTR_s_nope_0015a140</span><span class="p">;</span><span class="w">                                            </span><span class="err">#</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">wrong</span>
+<span class="w">      </span><span class="n">local_d70</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="n">local_d68</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">      </span><span class="n">local_d60</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZEXT816</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">stdio</span><span class="o">::</span><span class="n">_print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_d78</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">uVar10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we can see comparison of local_d80 to 0x3c which is 60. Looks like expected length as we also see call
+bcmp with 3 params: </p>
+<ol>
+<li><code>__s1</code> (which we identified is initialized with 60 bytes) - first param to compare;</li>
+<li><code>local_d88</code> second param to compare;</li>
+<li>0x3c (number of bytes to compare).</li>
+</ol>
+<p>With debugger we can easily obtain expected value:
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>x/60bx<span class="w"> </span>0x5555555b2b80
+0x5555555b2b80:<span class="w"> </span>0xfa<span class="w">    </span>0xa6<span class="w">    </span>0x56<span class="w">    </span>0x32<span class="w">    </span>0xc3<span class="w">    </span>0x71<span class="w">    </span>0x30<span class="w">    </span>0xcd
+0x5555555b2b88:<span class="w"> </span>0x29<span class="w">    </span>0x16<span class="w">    </span>0x16<span class="w">    </span>0x0f<span class="w">    </span>0x39<span class="w">    </span>0x4f<span class="w">    </span>0xe7<span class="w">    </span>0x65
+0x5555555b2b90:<span class="w"> </span>0x2e<span class="w">    </span>0xfa<span class="w">    </span>0x05<span class="w">    </span>0xdb<span class="w">    </span>0xcc<span class="w">    </span>0xea<span class="w">    </span>0x47<span class="w">    </span>0x12
+0x5555555b2b98:<span class="w"> </span>0xc8<span class="w">    </span>0xf4<span class="w">    </span>0x7f<span class="w">    </span>0xed<span class="w">    </span>0x90<span class="w">    </span>0x30<span class="w">    </span>0xf6<span class="w">    </span>0xad
+0x5555555b2ba0:<span class="w"> </span>0xab<span class="w">    </span>0xb1<span class="w">    </span>0x50<span class="w">    </span>0xa7<span class="w">    </span>0xa2<span class="w">    </span>0xcf<span class="w">    </span>0xb5<span class="w">    </span>0xd1
+0x5555555b2ba8:<span class="w"> </span>0x3b<span class="w">    </span>0x2e<span class="w">    </span>0xb3<span class="w">    </span>0x9a<span class="w">    </span>0xfe<span class="w">    </span>0x36<span class="w">    </span>0xa0<span class="w">    </span>0x8e
+0x5555555b2bb0:<span class="w"> </span>0x90<span class="w">    </span>0x18<span class="w">    </span>0x9f<span class="w">    </span>0x04<span class="w">    </span>0xe7<span class="w">    </span>0xcb<span class="w">    </span>0x79<span class="w">    </span>0x61
+0x5555555b2bb8:<span class="w"> </span>0x5c<span class="w">    </span>0xd9<span class="w">    </span>0x5b<span class="w">    </span>0x38
+</code></pre></div></td></tr></table></div></p>
+<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<p>Now we understand what program is doing it encrypts password that we enter and expects result to be <code>0xfaa6...</code>. Or more formally:
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>AES.encrypt(password) = expected_value
+
+# Because we have expected value, we can caluculate password using formular:
+AES.decrypt(expected_value) = password
+</code></pre></div></td></tr></table></div></p>
+<details class="success">
+<summary>solve.py</summary>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+
+<span class="n">nonce</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;ff067245c6ae7b9fc136d48e&#39;</span><span class="p">)</span>
+<span class="n">key</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;9587e8e7dec03c28a28ca1f7352723816c216e10714a620b9e367893389690cf&#39;</span><span class="p">)</span>
+<span class="n">expected_value</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;faa65632c37130cd2916160f394fe7652efa05dbccea4712c8f47fed9030f6adabb150a7a2cfb5d13b2eb39afe36a08e90189f04e7cb79615cd95b38&#39;</span><span class="p">)</span>
+<span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_GCM</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">expected_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
@@ -503,6 +1173,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../sssshhhh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: sssshhhh">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                sssshhhh
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
