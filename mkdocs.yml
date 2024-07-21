@@ -20,4 +20,4 @@ nav:
   - sssshhhh: ./sssshhhh/index.md
   - Rusty vault: ./rusty/index.md
   - Jmp flag: ./jmp_flag/index.md
-#  - Pac shell: ./pac_shell/index.md
+  - Pac shell: ./pac_shell/index.md
